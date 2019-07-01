@@ -1,7 +1,7 @@
-#include "./libft/libft.h"
-#include "./includes/push_swap.h"
+#include <libft.h>
+#include <push_swap.h>
 
-void	ft_print_list(t_stack *a)
+void	ft_print_stack(t_stack *a)
 {
 	t_stack *tmp;
 

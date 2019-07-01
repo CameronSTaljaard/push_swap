@@ -1,6 +1,5 @@
 NAME	= libft.a
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror -c -I.
 
 # Part 1
 SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_memccpy.c
@@ -20,12 +19,12 @@ SRCS		+= ft_putnbr_col_fd.c
 SRCS		+= ft_copyuntil.c
 
 OBJS		= $(SRCS:.c=.o)
-FLAGS =		-Wall -Werror -Wextra
+FLAGS =		-Wall -Werror -Wextra -c -Iincludes
 
-all:		$(NAME)
+all:		$(NAME) $(SRCS)
 
 $(NAME): $(SRCS)
-		gcc $(FLAGS) -c $(SRCS)
+		gcc $(FLAGS) $(SRCS)
 		ar rc $(NAME) $(OBJS)
 		ranlib $(NAME)
 
