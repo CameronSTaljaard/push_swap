@@ -9,6 +9,7 @@
  }				t_stack;
  
  void			ft_print_list(t_stack *a);
+ void			stack_remove(t_stack **head, int index);
  t_stack 		*init_stack();
 
 #endif
