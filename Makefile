@@ -16,7 +16,7 @@ all:		$(NAME)
 
 $(NAME): $(SRCS) $(LIBFT)
 		cd ./libft && make
-		gcc -L ./libft/libft.a -I ./libft/includes -I ./includes/ $(SRCS)
+		gcc -I./libft/includes -I./includes $(SRCS) -lft -L ./libft
 		#$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(SRCS) -o $(NAME)
 
 clean:

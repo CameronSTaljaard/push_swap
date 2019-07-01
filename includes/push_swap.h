@@ -8,7 +8,7 @@
 				struct s_stack *previous;
  }				t_stack;
  
- void			ft_print_list(t_stack *a);
+ void			ft_print_stack(t_stack *a);
  void			stack_remove(t_stack **head, int index);
  t_stack 		*init_stack();
 

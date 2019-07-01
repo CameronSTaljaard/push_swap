@@ -16,8 +16,6 @@ int		main(int ac, char **av)
 
 	if (b == NULL)
 		ft_putendl_col_fd(GREEN, "It's NULL fam", 1);
-	ft_print_list(a);
-	stack_remove(&a, 4);
-	ft_print_list(a);
+	ft_print_stack(a);
 	return (0);
 }
