@@ -1,6 +1,6 @@
 #include <libft.h>
-#include "push_swap.h"
-#include "stdlib.h"
+#include <push_swap.h>
+#include <stdlib.h>
 
 int		main(int ac, char **av)
 {
