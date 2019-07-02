@@ -14,13 +14,14 @@
  void						stack_add(t_stack **head, t_stack *node);
  void						print_stack(t_stack *a);
  int						stack_size(t_stack *a);
- t_stack	*push_in_list(t_stack *list, int num);
+ t_stack				*push_in_list(t_stack *list, int num);
 
  /*
  ** Operations.
  */
  void						sa(t_stack **a);
  void						sa(t_stack **b);
- void		pa(t_stack **a, t_stack **b);
+ void						pa(t_stack **a, t_stack **b);
+ void						pb(t_stack **a, t_stack **b);
 
 #endif

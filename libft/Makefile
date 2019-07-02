@@ -1,5 +1,10 @@
-NAME	= libft.a
-CC		= gcc
+NAME		= libft.a
+CC			= gcc
+
+RED			=	$(echo -e "\033[0;31m")
+GREEN		=	$(echo -e "\e[32m")
+YELLOW	=	$(echo -e "\033[0;33m")
+END			=	$(echo -e "\033[0m")
 
 # Part 1
 SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_memccpy.c
@@ -24,14 +29,18 @@ FLAGS =		-Wall -Werror -Wextra -c -Iincludes
 all:		$(NAME) $(SRCS)
 
 $(NAME): $(SRCS)
-		gcc $(FLAGS) $(SRCS)
-		ar rc $(NAME) $(OBJS)
-		ranlib $(NAME)
+		@gcc $(FLAGS) $(SRCS)
+		@echo $(GREEN)Compiled source files.
+		@ar rc $(NAME) $(OBJS)
+		@ranlib $(NAME)
+		@echo $(GREEN)Built library.
 
 clean:
-		/bin/rm -f $(OBJS)
+		@/bin/rm -f $(OBJS)
+		@echo $(GREEN)Cleaned objects.
 
 fclean: clean
-		/bin/rm -f $(NAME)
+		@/bin/rm -f $(NAME)
+		@echo $(GREEN)Cleaned library.
 
 re: fclean all

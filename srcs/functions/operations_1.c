@@ -16,6 +16,21 @@ void	pa(t_stack **a, t_stack **b)
 	ft_putendl_col_fd(GREEN, "pa", 1);
 }
 
+void	pb(t_stack **a, t_stack **b)
+{
+	int num;
+	t_stack *tmp;
+	
+	if (*a == NULL)
+		return ;
+	tmp = *a;
+	num = (*a)->number;
+	*b = push_in_list(*b, num);
+	*a = (*a)->next;
+	free(tmp);
+	ft_putendl_col_fd(GREEN, "pb", 1);
+}
+
 void	sa(t_stack **a)
 {
 	t_stack *temp;
