@@ -4,31 +4,45 @@
 
 t_stack	*init_stack(int ac, char **av)
 {
-	int i;
 	t_stack *head;
 	t_stack *tmp;
+	int i;
 
-	head = (t_stack *)malloc(sizeof(t_stack));
-	tmp = head;
-	i = 0;
+	head = stack_new(atoi(av[1]));
+	i = 1;
 	while (++i < ac)
 	{
-		tmp->number = ft_atoi(av[i]);
-		tmp->next = (t_stack *)malloc(sizeof(t_stack));
-		tmp = tmp->next;
+		tmp = stack_new(atoi(av[i]));
+		stack_add(&head, tmp);
 	}
-	tmp->next = NULL;
 	return (head);
+}
+
+t_stack	*stack_new(int n)
+{
+	t_stack *tmp;
+
+	tmp = (t_stack *)malloc(sizeof(t_stack));
+	tmp->number = n;
+	tmp->previous = NULL;
+	tmp->next = NULL;
+
+	return (tmp);
 }
 
 void	stack_add(t_stack **head, t_stack *node)
 {
 	t_stack *tmp;
+	//t_stack *prev;
 
-	tmp = *head;
+	tmp = (*(head));
 	while (tmp->next)
+	{
+		//prev = tmp;
 		tmp = tmp->next;
-	(*(head))->next = node;
+	}
+	node->previous = tmp;
+	tmp->next = node;
 }
 
 void	stack_remove(t_stack **head, int index)

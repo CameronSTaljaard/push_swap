@@ -7,10 +7,11 @@ int		main(int ac, char **av)
 	t_stack *a;
 	t_stack *b;
 
-	if (ac == 1)
+	if (ac < 3)
 		ft_putendl_col_fd(RED, "Too few arguments.", 1);
-	if (ac == 1)
+	if (ac < 3)
 		return (0);
+
 	a = init_stack(ac, av);
 	b = NULL;
 
