@@ -13,10 +13,29 @@ int		main(int ac, char **av)
 		return (0);
 
 	a = init_stack(ac, av);
-	b = NULL;
+	b = stack_new(69);
 
 	if (b == NULL)
-		ft_putendl_col_fd(GREEN, "It's NULL fam", 1);
-	ft_print_stack(a);
+		ft_putendl_col_fd(GREEN, "b is empty", 1);
+	ft_putendl_col_fd(RED, "Stack 1:", 1);
+	ft_putendl_col_fd(RED, "___________", 1);
+	print_stack(a);
+	ft_putendl_col_fd(RED, "___________", 1);
+	pa(&a, &b);
+	ft_putendl_col_fd(RED, "Stack 1:", 1);
+	ft_putendl_col_fd(RED, "___________", 1);
+	print_stack(a);
+	ft_putendl_col_fd(RED, "___________", 1);
+	sa(&a);
+	ft_putendl_col_fd(RED, "Stack 1:", 1);
+	ft_putendl_col_fd(RED, "___________", 1);
+	print_stack(a);
+	ft_putendl_col_fd(RED, "___________", 1);
+	ft_putstr_col_fd(GREEN, "Stack a size is: ", 1);
+	ft_putnbr_col_fd(GREEN, stack_size(a), 1);
+	ft_putendl("");
+	ft_putstr_col_fd(GREEN, "Stack b size is: ", 1);
+	ft_putnbr_col_fd(GREEN, stack_size(b), 1);
+	ft_putendl("");
 	return (0);
 }
