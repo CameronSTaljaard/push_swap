@@ -22,21 +22,10 @@ int		main(int ac, char **av)
 	print_stack(a);
 	ft_putendl_col_fd(RED, "-----------", 1);
 	
-	pa(&a, &b);
+	reverse_rotate(&a);
 	ft_putendl_col_fd(RED, "Stack 1:", 1);
 	ft_putendl_col_fd(RED, "-----------", 1);
 	print_stack(a);
-	ft_putendl_col_fd(RED, "-----------", 1);
-
-	sa(&a);
-	ft_putendl_col_fd(RED, "Stack 1:", 1);
-	ft_putendl_col_fd(RED, "-----------", 1);
-	print_stack(a);
-	ft_putendl_col_fd(RED, "-----------", 1);
-
-	ft_putendl_col_fd(RED, "Stack 2:", 1);
-	ft_putendl_col_fd(RED, "-----------", 1);
-	print_stack(b);
 	ft_putendl_col_fd(RED, "-----------", 1);
 
 	ft_putstr_col_fd(GREEN, "Stack a size is: ", 1);

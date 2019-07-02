@@ -21,7 +21,7 @@ all:		$(NAME_CH)
 $(NAME_CH): $(SRCS) $(LIBFT) $(HEADERS_DIRECTORY)
 		@cd ./libft && make && make clean
 		@echo $(RED)Built libft.$(END);
-		@$(CC) $(FLAGS) $(INCLUDES) $(SRCS) $(LIBRARIES) -o $(NAME)
+		@$(CC) $(FLAGS) $(INCLUDES) $(SRCS) $(LIBRARIES) -o $(NAME_CH)
 		@echo $(RED)Successfully built $(NAME_CH).$(END);
 
 clean:

@@ -23,5 +23,7 @@
  void						sa(t_stack **b);
  void						pa(t_stack **a, t_stack **b);
  void						pb(t_stack **a, t_stack **b);
+ void						rotate(t_stack **stack);
+ void						reverse_rotate(t_stack **stack);
 
 #endif
