@@ -65,40 +65,5 @@ void	ss(t_stack **a, t_stack **b)
 {
 	sb(b);
 	sa(a);
-}
-
-void	rotate(t_stack **stack)
-{
-	if (stack_size(*stack) < 3)
-		return ;
-	t_stack *head;
-	t_stack *tmp;
-
-	head = *stack;
-	*stack = (*stack)->next;
-	(*stack)->previous = NULL;
-	head->next = NULL;
-	tmp = *stack;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = head;
-	head->previous = tmp;
-}
-
-void	reverse_rotate(t_stack **stack)
-{
-	if (stack_size(*stack) < 3)
-		return ;
-	t_stack *head;
-	t_stack *end;
-
-	head = *stack;
-	end = *stack;
-	while (end->next)
-		end = end->next;
-	head->previous = end;
-	end->previous->next = NULL;
-	end->next = head;
-	end->previous = NULL;
-	*stack = end;
+	ft_putendl_col_fd(GREEN, "ss", 1);
 }

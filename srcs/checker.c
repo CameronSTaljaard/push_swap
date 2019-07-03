@@ -22,7 +22,7 @@ int		main(int ac, char **av)
 	print_stack(a);
 	ft_putendl_col_fd(RED, "-----------", 1);
 	
-	reverse_rotate(&a);
+	rra(&a);
 	ft_putendl_col_fd(RED, "Stack 1:", 1);
 	ft_putendl_col_fd(RED, "-----------", 1);
 	print_stack(a);
