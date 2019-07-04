@@ -3,38 +3,38 @@
 
 int     check_op(char **line, t_stack **a, t_stack **b)
 {
-    if (ft_strcmp(*line, "sa") == 0)
-        sa(a);
-    else if (ft_strcmp(*line, "sb") == 0)
-        sb(b);
-    else if (ft_strcmp(*line, "ss") == 0)
-        ss(a, b);
-    else if (ft_strcmp(*line, "pa") == 0)
-        pa(a, b);
-    else if (ft_strcmp(*line, "pb") == 0)
-        pb(a, b);
-    else if (ft_strcmp(*line, "ra") == 0)
-        ra(a);
-    else if (ft_strcmp(*line, "rb") == 0)
-        rb(b);
-    else if (ft_strcmp(*line, "rr") == 0)
-        rr(a, b);
-    else if (ft_strcmp(*line, "rra") == 0)
-        rra(a);
-    else if (ft_strcmp(*line, "rrb") == 0)
-        rrb(b);
-    else if (ft_strcmp(*line, "rrr") == 0)
-        rrr(a, b);
-    else
-        return (0);
-	ft_putendl_col_fd(RED, "-------------", 1);
-	print_stack(*a);
-	ft_putendl_col_fd(RED, "-------------", 1);
-    return (1);
+	if (ft_strequ(*line, "sa"))
+		sa(a);
+	else if (ft_strequ(*line, "sb"))
+		sb(b);
+	else if (ft_strequ(*line, "ss"))
+		ss(a, b);
+	else if (ft_strequ(*line, "pa"))
+		pa(a, b);
+	else if (ft_strequ(*line, "pb"))
+		pb(a, b);
+	else if (ft_strequ(*line, "ra"))
+		ra(a);
+	else if (ft_strequ(*line, "rb"))
+		rb(b);
+	else if (ft_strequ(*line, "rr"))
+		rr(a, b);
+	else if (ft_strequ(*line, "rra"))
+		rra(a);
+	else if (ft_strequ(*line, "rrb"))
+		rrb(b);
+	else if (ft_strequ(*line, "rrr"))
+		rrr(a, b);
+	else
+		return (0);
+	ft_putendl_col_fd(GREEN, *line, 1);
+	CLEAR;
+	visualize(*a, *b);
+  return (1);
 }
 
 void    checkline(char **line, t_stack **a, t_stack **b)
 {
-    if (line != NULL)
+    if (line)
         check_op(line, a, b);
 }

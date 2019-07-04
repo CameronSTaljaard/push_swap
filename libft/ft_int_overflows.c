@@ -20,12 +20,12 @@ int	ft_int_overflows(const char *str)
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		res = (res * 10) + (str[i] - '0');
+		if (neg == 1)
+			if (res > MAX_INT)
+				return (1);
 		i++;
 	}
-	if (neg == 1)
-		if (res > MAX_INT)
-			return (1);
-	res *= -1;
+	res *= neg;
 	if (neg == -1)
 		if (res < MIN_INT)
 			return (1);

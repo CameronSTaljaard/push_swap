@@ -1,6 +1,7 @@
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
-#include <stdlib.h>
+# define PUSH_SWAP_H
+# include <stdlib.h>
+# define CLEAR ft_putstr("\033[H\033[J");
 
 typedef struct		s_stack
 {
@@ -41,5 +42,10 @@ void 				checkline(char **line, t_stack **a, t_stack **b);
 ** Input checking
 */
 int					input_valid(int ac, char **av);
+
+/*
+** Visualizing
+*/
+void				visualize(t_stack *a, t_stack *b);
 
 #endif

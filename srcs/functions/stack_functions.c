@@ -1,19 +1,6 @@
 #include <libft.h>
 #include <push_swap.h>
 
-void	print_stack(t_stack *a)
-{
-	t_stack *tmp;
-
-	tmp = a;
-	while(tmp)
-	{
-		ft_putnbr(tmp->number);
-		ft_putendl("");
-		tmp = tmp->next;
-	}
-}
-
 int		stack_size(t_stack *a)
 {
 	t_stack *tmp;

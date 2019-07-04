@@ -47,6 +47,8 @@ void	rr(t_stack **a, t_stack **b)
 
 void	rra(t_stack **stack)
 {
+	if (stack_size(*stack) == 2)
+		sb(stack);
 	if (stack_size(*stack) < 3)
 		return ;
 	t_stack *head;
@@ -66,6 +68,8 @@ void	rra(t_stack **stack)
 
 void	rrb(t_stack **stack)
 {
+	if (stack_size(*stack) < 2)
+		sb(stack);
 	if (stack_size(*stack) < 3)
 		return ;
 	t_stack *head;

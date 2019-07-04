@@ -20,12 +20,24 @@ int main(int ac, char **av)
 	}
 	a = init_stack(ac, av);
 	b = stack_new(69);
-
-	if (b == NULL)
-		ft_putendl_col_fd(GREEN, "b is empty", 1);
-	while (get_next_line(0, &line))
+	CLEAR;
+	visualize(a, b);
+	/*
+	// Height
+	for (int i = 0; i < 10; i++)
 	{
-		checkline(&line, &a, &b);
+		ft_putchar(0x2503);
+		for (int i = 0; i < 15; i++)
+			ft_putchar(' ');
+		ft_putchar(0x2503);
+		for (int i = 0; i < 15; i++)
+			ft_putchar(' ');
+		ft_putchar(0x2503);
+		ft_putchar('\n');
 	}
+	*/
+
+	while (get_next_line(0, &line))
+		checkline(&line, &a, &b);
 	return (0);
 }
