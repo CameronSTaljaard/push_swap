@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include <libft.h>
 
 static int		ft_substrlen(const char *str, int index, char delim)
 {

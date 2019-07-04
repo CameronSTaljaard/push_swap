@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <unistd.h>
+#include <libft.h>
 
 void	ft_putchar_col_fd(char *colour, int c, int fd)
 {

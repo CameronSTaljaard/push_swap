@@ -1,9 +1,10 @@
 NAME		= libft.a
 CC			= gcc
+INCLUDES 	= -I./includes
 
 RED			=	$(echo -e "\033[0;31m")
 GREEN		=	$(echo -e "\e[32m")
-YELLOW	=	$(echo -e "\033[0;33m")
+YELLOW		=	$(echo -e "\033[0;33m")
 END			=	$(echo -e "\033[0m")
 
 # Part 1
@@ -21,7 +22,7 @@ SRCS		+= ft_iswhitespace.c ft_wordcount.c ft_sort_array.c ft_strswap.c ft_insert
 SRCS		+= ft_intlen.c ft_frequency.c ft_putendl_col_fd.c ft_putchar_col_fd.c ft_putstr_col_fd.c
 SRCS		+= ft_putnbr_col_fd.c
 # get_next_line
-SRCS		+= ft_copyuntil.c
+SRCS		+= ft_copyuntil.c get_next_line.c
 
 OBJS		= $(SRCS:.c=.o)
 FLAGS =		-Wall -Werror -Wextra -c -Iincludes
@@ -29,7 +30,7 @@ FLAGS =		-Wall -Werror -Wextra -c -Iincludes
 all:		$(NAME) $(SRCS)
 
 $(NAME): $(SRCS)
-		@gcc $(FLAGS) $(SRCS)
+		@gcc $(FLAGS) $(INCLUDES) $(SRCS)
 		@echo $(GREEN)Compiled source files.
 		@ar rc $(NAME) $(OBJS)
 		@ranlib $(NAME)

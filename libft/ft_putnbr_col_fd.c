@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 void	ft_putnbr_col_fd(char *colour, int nbr, int fd)
 {

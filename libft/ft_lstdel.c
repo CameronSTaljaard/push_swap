@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include <libft.h>
 
 void	ft_lstdel(t_list **link, void (*del)(void *, size_t))
 {

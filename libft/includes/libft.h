@@ -23,6 +23,8 @@
 # define TRUE 1
 # define FALSE 0
 # include <string.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct		s_list
 {
