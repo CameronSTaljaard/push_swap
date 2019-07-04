@@ -1,7 +1,7 @@
 #include <push_swap.h>
 #include <libft.h>
 
-int     checkwhichop(char **line, t_stack **a, t_stack **b)
+int     check_op(char **line, t_stack **a, t_stack **b)
 {
     if (ft_strcmp(*line, "sa") == 0)
         sa(a);
@@ -36,5 +36,5 @@ int     checkwhichop(char **line, t_stack **a, t_stack **b)
 void    checkline(char **line, t_stack **a, t_stack **b)
 {
     if (line != NULL)
-        checkwhichop(line, a, b);
+        check_op(line, a, b);
 }

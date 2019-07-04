@@ -34,7 +34,12 @@ void				rr(t_stack **a, t_stack **b);
 /*
 ** Line reading
 */
-int 				checkwhichop(char **line, t_stack **a, t_stack **b);
+int 				check_op(char **line, t_stack **a, t_stack **b);
 void 				checkline(char **line, t_stack **a, t_stack **b);
+
+/*
+** Input checking
+*/
+int					input_valid(int ac, char **av);
 
 #endif

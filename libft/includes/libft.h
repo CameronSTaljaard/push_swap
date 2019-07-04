@@ -136,5 +136,6 @@ void				ft_putstr_col_fd(char *colour, char *str, int fd);
 void				ft_putnbr_col_fd(char *colour, int nbr, int fd);
 void				ft_putchar_col_fd(char *colour, int c, int fd);
 int					ft_copyuntil(char **dst, char *src, char c);
+int					ft_int_overflows(const char *str);
 
 #endif
