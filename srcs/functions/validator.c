@@ -1,6 +1,31 @@
 #include <libft.h>
 
-// Make this actually work later
+static int	has_doubles(int ac, char **av)
+{
+	int	*arr;
+	int	i;
+	int j;
+
+	i = 1;
+	arr = (int *)malloc(sizeof(int) * ac - 1);
+	while (++i < ac)
+		arr[i] = ft_atoi(av[i]);
+	i = 2;
+	while (i < ac)
+	{
+		j = i + 1;
+		while (j < ac)
+		{
+			if (arr[i] == arr[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	free(arr);
+	return (0);
+}
+
 static int	int_check(char *str)
 {
 	if (*str == '-')
@@ -34,6 +59,8 @@ int		input_valid(int ac, char **av)
 		if(!only_digits(av[i]))
 			return (FALSE);
 		if(!int_check(av[i]))
+			return (FALSE);
+		if(has_doubles(ac, av))
 			return (FALSE);
 	}
 	return (TRUE);

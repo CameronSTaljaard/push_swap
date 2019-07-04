@@ -19,25 +19,11 @@ int main(int ac, char **av)
 		return (0);
 	}
 	a = init_stack(ac, av);
-	b = stack_new(69);
+	b = NULL;
 	CLEAR;
 	visualize(a, b);
-	/*
-	// Height
-	for (int i = 0; i < 10; i++)
-	{
-		ft_putchar(0x2503);
-		for (int i = 0; i < 15; i++)
-			ft_putchar(' ');
-		ft_putchar(0x2503);
-		for (int i = 0; i < 15; i++)
-			ft_putchar(' ');
-		ft_putchar(0x2503);
-		ft_putchar('\n');
-	}
-	*/
-
 	while (get_next_line(0, &line))
-		checkline(&line, &a, &b);
+		if (!checkline(line, &a, &b))
+			ERROR;
 	return (0);
 }
