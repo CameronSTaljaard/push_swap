@@ -1,11 +1,13 @@
 #include <libft.h>
 #include <push_swap.h>
 #include <stdlib.h>
+#include <get_next_line.h>
 
-int		main(int ac, char **av)
+int main(int ac, char **av)
 {
 	t_stack *a;
 	t_stack *b;
+	char *line = NULL;
 
 	if (ac < 3)
 		ft_putendl_col_fd(RED, "Too few arguments.", 1);
@@ -17,22 +19,9 @@ int		main(int ac, char **av)
 
 	if (b == NULL)
 		ft_putendl_col_fd(GREEN, "b is empty", 1);
-	ft_putendl_col_fd(RED, "Stack 1:", 1);
-	ft_putendl_col_fd(RED, "-----------", 1);
-	print_stack(a);
-	ft_putendl_col_fd(RED, "-----------", 1);
-	
-	rra(&a);
-	ft_putendl_col_fd(RED, "Stack 1:", 1);
-	ft_putendl_col_fd(RED, "-----------", 1);
-	print_stack(a);
-	ft_putendl_col_fd(RED, "-----------", 1);
-
-	ft_putstr_col_fd(GREEN, "Stack a size is: ", 1);
-	ft_putnbr_col_fd(GREEN, stack_size(a), 1);
-	ft_putendl("");
-	ft_putstr_col_fd(GREEN, "Stack b size is: ", 1);
-	ft_putnbr_col_fd(GREEN, stack_size(b), 1);
-	ft_putendl("");
+	while (get_next_line(0, &line))
+	{
+		checkline(&line, &a, &b);
+	}
 	return (0);
 }

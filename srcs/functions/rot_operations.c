@@ -39,6 +39,12 @@ void	rb(t_stack **stack)
 	ft_putendl_col_fd(GREEN, "rb", 1);
 }
 
+void	rr(t_stack **a, t_stack **b)
+{
+	ra(a);
+	rb(b);
+}
+
 void	rra(t_stack **stack)
 {
 	if (stack_size(*stack) < 3)
