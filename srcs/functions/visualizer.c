@@ -1,26 +1,20 @@
 #include <push_swap.h>
 #include <libft.h>
-#define DIVIDER ft_putchar(0x2503); ft_putchar(' ');
+#define DIVIDER ft_putchar_col_fd(GREEN, 0x2503, 1); ft_putchar(' ');
 
 static void	print_top()
 {
 	int i;
-	// Corner.
-	ft_putchar(0x250F);
 
+	ft_putchar_col_fd(GREEN, 0x250F, 1);
 	i = -1;
 	while(++i < 13)
-		ft_putchar(0x2501);
-
-	// Divider
-	ft_putchar(0x2533);
-
+		ft_putchar_col_fd(GREEN, 0x2501, 1);
+	ft_putchar_col_fd(GREEN, 0x2533, 1);
 	i = -1;
 	while(++i < 13)
-		ft_putchar(0x2501);
-
-	// Corner
-	ft_putchar(0x2513);
+		ft_putchar_col_fd(GREEN, 0x2501, 1);
+	ft_putchar_col_fd(GREEN, 0x2513, 1);
 	ft_putchar('\n');
 }
 
@@ -50,22 +44,16 @@ static void	print_content(t_stack *a, t_stack *b)
 static void	print_bottom()
 {
 	int i;
-	// Corner.
-	ft_putchar(0x2517);
 
+	ft_putchar_col_fd(GREEN, 0x2517, 1);
 	i = -1;
 	while(++i < 13)
-		ft_putchar(0x2501);
-
-	// Divider
-	ft_putchar(0x253B);
-
+		ft_putchar_col_fd(GREEN, 0x2501, 1);
+	ft_putchar_col_fd(GREEN, 0x253B, 1);
 	i = -1;
 	while(++i < 13)
-		ft_putchar(0x2501);
-
-	// Corner
-	ft_putchar(0x251B);
+		ft_putchar_col_fd(GREEN, 0x2501, 1);
+	ft_putchar_col_fd(GREEN, 0x251B, 1);
 	ft_putchar('\n');
 }
 

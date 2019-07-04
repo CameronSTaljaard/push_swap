@@ -8,7 +8,7 @@ LIBRARIES = -lft -Llibft
 LIBFT	= ./libft/*
 INCLUDES = -I./libft/includes -I./includes
 
-RED=$(echo -e "\033[0;31m")
+RED=$(echo -e "\033[31m")
 YELLOW=$(echo -e "\033[0;33m")
 END=$(echo -e "\033[0m")
 
