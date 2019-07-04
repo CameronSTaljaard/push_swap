@@ -3,3 +3,6 @@
 *.a
 *.so
 *.o
+.vscode
+checker
+.DS_Store
