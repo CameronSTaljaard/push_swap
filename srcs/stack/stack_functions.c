@@ -27,3 +27,23 @@ t_stack	*push_in_list(t_stack *list, int num)
 	tmp->next = list;
 	return (tmp);
 }
+
+void push(t_stack **head_ref, int new_data) 
+{ 
+    /* 1. allocate node */
+    t_stack *new_node = (t_stack*)malloc(sizeof(t_stack)); 
+  
+    /* 2. put in the data  */
+    new_node->number = new_data; 
+  
+    /* 3. Make next of new node as head and previous as NULL */
+    new_node->next = (*head_ref); 
+    new_node->previous = NULL; 
+  
+    /* 4. change prev of head node to new node */
+    if (*head_ref)
+        (*head_ref)->previous = new_node; 
+  
+    /* 5. move the head to point to the new node */
+    (*head_ref) = new_node; 
+}

@@ -10,8 +10,11 @@ void	pa(t_stack **a, t_stack **b)
 		return ;
 	tmp = *b;
 	num = (*b)->number;
-	*a = push_in_list(*a, num);
+	//*a = push_in_list(a, num);
+	push(a, num);
 	*b = (*b)->next;
+	if (*b)
+		(*b)->previous = NULL;
 	free(tmp);
 	ft_putendl_col_fd(GREEN, "pa", 1);
 }
@@ -25,40 +28,35 @@ void	pb(t_stack **a, t_stack **b)
 		return ;
 	tmp = *a;
 	num = (*a)->number;
-	*b = push_in_list(*b, num);
+	//*b = push_in_list(a, num);
+	push(b, num);
 	*a = (*a)->next;
 	free(tmp);
 	ft_putendl_col_fd(GREEN, "pb", 1);
 }
 
-void	sa(t_stack **a)
+void 	sa(t_stack **a)
 {
-	t_stack *temp;
+	t_stack *first 	= *a;
+	t_stack *second = (*a)->next;
 
-	if(stack_size(*a) > 2)
-	{
-		temp = *a;
-		temp = temp->next;
-		(*a)->next = temp->next;
-		temp->next = *a;
-		*a = temp;
-	}
-	ft_putendl_col_fd(GREEN, "sa", 1);
+	first->next		= second->next;
+	first->previous = second; 
+	second->previous = NULL;
+	second->next = first;
+	*a = second;
 }
 
-void	sb(t_stack **b)
+void 	sb(t_stack **b)
 {
-	t_stack *temp;
+	t_stack *first 	= *b;
+	t_stack *second = (*b)->next;
 
-	if(stack_size(*b) > 2)
-	{
-		temp = *b;
-		temp = temp->next;
-		(*b)->next = temp->next;
-		temp->next = *b;
-		*b = temp;
-	}
-	ft_putendl_col_fd(GREEN, "sb", 1);
+	first->next		= second->next;
+	first->previous = second; 
+	second->previous = NULL;
+	second->next = first;
+	*b = second;
 }
 
 void	ss(t_stack **a, t_stack **b)

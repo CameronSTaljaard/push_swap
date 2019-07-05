@@ -25,6 +25,10 @@ int		do_op(char *line, t_stack **a, t_stack **b)
 		rrb(b);
 	else if (ft_strequ(line, "rrr"))
 		rrr(a, b);
+	else if (ft_strequ(line, "pl"))
+		print_stack(*a);
+	else if (ft_strequ(line, "prl"))
+		print_reverse_stack(*a);
 	else
 		return (0);
 	ft_putendl_col_fd(GREEN, line, 1);
@@ -46,6 +50,9 @@ int     check_op(char *line)
 	else if (ft_strequ(line, "rr") || ft_strequ(line, "rrr"))
 		return (1);
 	else if (ft_strequ(line, "rra") || ft_strequ(line, "rrb"))
+		return (1);
+	// Remove
+	else if (ft_strequ(line, "pl") || ft_strequ(line, "prl"))
 		return (1);
 	return (0);
 }

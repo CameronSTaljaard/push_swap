@@ -69,6 +69,21 @@ void	print_stack(t_stack *a)
 	t_stack *tmp;
 
 	tmp = a;
+	while(tmp->next)
+		tmp = tmp->next;
+	while(tmp)
+	{
+		ft_putnbr(tmp->number);
+		ft_putendl("");
+		tmp = tmp->previous;
+	}
+}
+
+void	print_reverse_stack(t_stack *a)
+{
+	t_stack *tmp;
+
+	tmp = a;
 	while(tmp)
 	{
 		ft_putnbr(tmp->number);

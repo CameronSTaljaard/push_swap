@@ -13,10 +13,10 @@ typedef struct		s_stack
 
 t_stack 					*init_stack();
 t_stack 					*stack_new(int n);
-void 							stack_add(t_stack **head, t_stack *node);
-void 							print_stack(t_stack *a);
-int 							stack_size(t_stack *a);
+void 						stack_add(t_stack **head, t_stack *node);
+int 						stack_size(t_stack *a);
 t_stack 					*push_in_list(t_stack *list, int num);
+void push(t_stack **head_ref, int new_data);
 
 /*
 ** Operations.
@@ -49,5 +49,7 @@ int							input_valid(int ac, char **av);
 ** Visualizing
 */
 void						visualize(t_stack *a, t_stack *b);
+void						print_reverse_stack(t_stack *a);
+void 						print_stack(t_stack *a);
 
 #endif
