@@ -20,9 +20,9 @@ int		do_op(char *line, t_stack **a, t_stack **b)
 	else if (ft_strequ(line, "rr"))
 		rr(a, b);
 	else if (ft_strequ(line, "rra"))
-		rra(a);
+		rotate(a, -1);
 	else if (ft_strequ(line, "rrb"))
-		rrb(b);
+		rotate(b, -1);
 	else if (ft_strequ(line, "rrr"))
 		rrr(a, b);
 	else if (ft_strequ(line, "pl"))

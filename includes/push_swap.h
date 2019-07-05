@@ -52,4 +52,7 @@ void						visualize(t_stack *a, t_stack *b);
 void						print_reverse_stack(t_stack *a);
 void 						print_stack(t_stack *a);
 
+// Oof
+void 						rotate(t_stack **stack, int N); 
+
 #endif

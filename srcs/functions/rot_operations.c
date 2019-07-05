@@ -45,6 +45,50 @@ void	rr(t_stack **a, t_stack **b)
 	rb(b);
 }
 
+void rotate(t_stack **stack, int N) 
+{ 
+    if (N == 0) 
+        return; 
+  
+    t_stack *current = *stack; 
+    int count = 1; 
+    while (count < N && current != NULL) { 
+        current = current->next; 
+        count++; 
+    } 
+    if (current == NULL) 
+        return; 
+    t_stack *NthNode = current; 
+    while (current->next != NULL) 
+        current = current->next; 
+    current->next = *stack; 
+    (*stack)->previous = current; 
+    *stack = NthNode->next; 
+    (*stack)->previous = NULL; 
+
+    NthNode->next = NULL; 
+}
+
+void	rra(t_stack **stack)
+{
+	if (stack_size(*stack) < 3)
+		return ;
+	t_stack *head;
+	t_stack *tmp;
+
+	head = *stack;
+	*stack = (*stack)->next;
+	(*stack)->previous = NULL;
+	head->next = NULL;
+	tmp = *stack;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = head;
+	head->previous = tmp;
+	ft_putendl_col_fd(GREEN, "ra", 1);
+}
+
+/*
 void	rra(t_stack **stack)
 {
 	if (stack_size(*stack) == 2)
@@ -65,6 +109,7 @@ void	rra(t_stack **stack)
 	*stack = end;
 	ft_putendl_col_fd(GREEN, "rra", 1);
 }
+*/
 
 void	rrb(t_stack **stack)
 {
