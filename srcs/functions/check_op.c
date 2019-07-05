@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_op.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/05 19:37:54 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/05 19:37:55 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <push_swap.h>
 #include <libft.h>
 
@@ -29,7 +41,7 @@ void	do_op(char *line, t_stack **a, t_stack **b, int c)
 		visualize(*a, *b, c, line);
 }
 
-int     check_op(char *line)
+int		check_op(char *line)
 {
 	if (ft_strequ(line, "sa") || ft_strequ(line, "sb"))
 		return (1);
@@ -46,7 +58,7 @@ int     check_op(char *line)
 	return (0);
 }
 
-int    checkline(char *line)
+int		checkline(char *line)
 {
 	if (line)
 	{

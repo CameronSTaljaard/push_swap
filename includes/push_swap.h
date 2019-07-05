@@ -2,7 +2,9 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # define CLEAR ft_putstr("\033[H\033[J");
-# define ERROR ft_putendl_col_fd(RED, "ERROR", 1);
+# define DIVIDER ft_putchar_col_fd(GREEN, 0x2503, 1); ft_putchar(' ');
+# define ERROR {ft_putendl_col_fd(RED, "ERROR", 1); exit(0);}
+# define INVALID_USE {ft_putendl_col_fd(RED, "Too few arguments.", 1); return (0);}
 
 typedef struct				s_stack
 {

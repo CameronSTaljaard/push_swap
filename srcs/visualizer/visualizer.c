@@ -1,37 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   visualizer.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/05 19:38:59 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/05 19:39:00 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <push_swap.h>
 #include <libft.h>
-#define DIVIDER ft_putchar_col_fd(GREEN, 0x2503, 1); ft_putchar(' ');
 
-static void	print_top()
+static void		print_top(void)
 {
-	int i;
+	int		i;
 
 	ft_putchar_col_fd(GREEN, 0x250F, 1);
 	i = -1;
-	while(++i < 13)
+	while (++i < 13)
 		ft_putchar_col_fd(GREEN, 0x2501, 1);
 	ft_putchar_col_fd(GREEN, 0x2533, 1);
 	i = -1;
-	while(++i < 13)
+	while (++i < 13)
 		ft_putchar_col_fd(GREEN, 0x2501, 1);
 	ft_putchar_col_fd(GREEN, 0x2513, 1);
 	ft_putchar('\n');
 }
 
-static void	print_content(t_stack *a, t_stack *b)
+static void		print_content(t_stack *a, t_stack *b)
 {
-	int	i;
+	int		i;
 
 	while (a || b)
 	{
 		DIVIDER;
-		(a) ? (i = 13 - ft_intlen(a->number)) : (i = 13);
-		(a) ? (ft_putnbr(a->number)) : NULL;
+		if (a)
+			i = 13 - ft_intlen(a->number);
+		else
+			i = 13;
+		(b) ? (ft_putnbr(b->number)) : NULL;
 		while (--i)
 			ft_putchar(' ');
 		DIVIDER;
-		(b) ? (i = 13 - ft_intlen(b->number)) : (i = 13);
-		(b) ? (ft_putnbr(b->number)) : NULL;
+		if (a)
+			i = 13 - ft_intlen(a->number);
+		else
+			i = 13;
+		(a) ? (ft_putnbr(a->number)) : NULL;
 		while (--i)
 			ft_putchar(' ');
 		DIVIDER;
@@ -41,56 +58,28 @@ static void	print_content(t_stack *a, t_stack *b)
 	}
 }
 
-static void	print_bottom()
+static void		print_bottom(void)
 {
-	int i;
+	int		i;
 
 	ft_putchar_col_fd(GREEN, 0x2517, 1);
 	i = -1;
-	while(++i < 13)
+	while (++i < 13)
 		ft_putchar_col_fd(GREEN, 0x2501, 1);
 	ft_putchar_col_fd(GREEN, 0x253B, 1);
 	i = -1;
-	while(++i < 13)
+	while (++i < 13)
 		ft_putchar_col_fd(GREEN, 0x2501, 1);
 	ft_putchar_col_fd(GREEN, 0x251B, 1);
 	ft_putchar('\n');
 }
 
-void	visualize(t_stack *a, t_stack *b, int c, char *command)
+void			visualize(t_stack *a, t_stack *b, int c, char *command)
 {
-	CLEAR
+	CLEAR;
 	print_top();
 	print_content(a, b);
 	print_bottom();
 	if (c)
 		ft_putendl(command);
-}
-
-void	print_reverse_stack(t_stack *a)
-{
-	t_stack *tmp;
-
-	tmp = a;
-	while(tmp->next)
-		tmp = tmp->next;
-	while(tmp)
-	{
-		ft_putnbr(tmp->number);
-		ft_putendl("");
-		tmp = tmp->previous;
-	}
-}
-
-void	print_stack(t_stack *a)
-{
-	t_stack *tmp;
-
-	tmp = a;
-	while(tmp)
-	{
-		ft_putnbr(tmp->number);
-		ft_putendl("");
-		tmp = tmp->next;
-	}
 }
