@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rot_operations.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/05 19:50:22 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/05 19:52:48 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <push_swap.h>
 #include <libft.h>
 
@@ -7,51 +19,31 @@ void	rr(t_stack **a, t_stack **b)
 	rotate(b, 1);
 }
 
-void rotate(t_stack **head, int n) 
+void	rotate(t_stack **head, int n)
 {
-	t_stack *current;
-	t_stack *NthNode;
+	t_stack	*current;
+	t_stack	*node_n;
+	int		count;
 
 	if (!n)
-		return;
-
+		return ;
 	current = *head;
-	int count = 1;
+	count = 1;
 	while (count < n && current != NULL)
 	{
 		current = current->next;
 		count++;
 	}
 	if (current == NULL)
-		return;
-	NthNode = current;
+		return ;
+	node_n = current;
 	while (current->next != NULL)
 		current = current->next;
 	current->next = *head;
 	(*head)->previous = current;
-
-	*head = NthNode->next;
+	*head = node_n->next;
 	(*head)->previous = NULL;
-	NthNode->next = NULL;
-}
-
-void	reverse_rotate(t_stack *stack)
-{
-	t_stack *last;
-	t_stack *tmp;
-
-	if (!stack)
-		return ;
-	if (stack_size(stack) < 3)
-		return ;
-	tmp = stack;
-	last = stack;
-	while (last->next)
-		last = last->next;
-	last->next = stack;
-	last->previous = NULL;
-	stack = last;
-	tmp->next = NULL;
+	node_n->next = NULL;
 }
 
 void	rrr(t_stack **a, t_stack **b)

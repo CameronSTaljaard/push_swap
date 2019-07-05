@@ -40,15 +40,15 @@ static void		print_content(t_stack *a, t_stack *b)
 			i = 13 - ft_intlen(a->number);
 		else
 			i = 13;
-		(b) ? (ft_putnbr(b->number)) : NULL;
+		(a) ? (ft_putnbr(a->number)) : NULL;
 		while (--i)
 			ft_putchar(' ');
 		DIVIDER;
-		if (a)
-			i = 13 - ft_intlen(a->number);
+		if (b)
+			i = 13 - ft_intlen(b->number);
 		else
 			i = 13;
-		(a) ? (ft_putnbr(a->number)) : NULL;
+		(b) ? (ft_putnbr(b->number)) : NULL;
 		while (--i)
 			ft_putchar(' ');
 		DIVIDER;

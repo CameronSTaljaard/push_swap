@@ -22,11 +22,13 @@ int	main(int ac, char **av)
 	char	*line;
 
 	if (ac < 3)
-		INVALID_USE;
+		BAD_USE;
 	if (!(input_valid(ac, av)))
 		ERROR;
 	a = init_stack(ac, av);
 	b = NULL;
+	CLEAR;
+	visualize(a, b, 1, "");
 	while (get_next_line(0, &line))
 	{
 		if (checkline(line))

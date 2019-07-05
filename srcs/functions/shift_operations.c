@@ -1,11 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   shift_operations.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/05 19:53:58 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/05 19:53:59 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <push_swap.h>
 #include <libft.h>
 
+// To do: Replace pa and pb with push function
+
 void	pa(t_stack **a, t_stack **b)
 {
-	int num;
-	t_stack *tmp;
-	
+	int		num;
+	t_stack	*tmp;
+
 	if (*b == NULL)
 		return ;
 	tmp = *b;
@@ -20,9 +34,9 @@ void	pa(t_stack **a, t_stack **b)
 
 void	pb(t_stack **a, t_stack **b)
 {
-	int num;
-	t_stack *tmp;
-	
+	int		num;
+	t_stack	*tmp;
+
 	if (*a == NULL)
 		return ;
 	tmp = *a;
@@ -33,33 +47,23 @@ void	pb(t_stack **a, t_stack **b)
 	ft_putendl_col_fd(GREEN, "pb", 1);
 }
 
-void 	sa(t_stack **a)
+void	swap(t_stack **a)
 {
-	t_stack *first 	= *a;
-	t_stack *second = (*a)->next;
+	t_stack	*first;
+	t_stack	*second;
 
-	first->next		= second->next;
-	first->previous = second; 
+	first = *a;
+	second = (*a)->next;
+	first->next = second->next;
+	first->previous = second;
 	second->previous = NULL;
 	second->next = first;
 	*a = second;
 }
 
-void 	sb(t_stack **b)
-{
-	t_stack *first 	= *b;
-	t_stack *second = (*b)->next;
-
-	first->next		= second->next;
-	first->previous = second; 
-	second->previous = NULL;
-	second->next = first;
-	*b = second;
-}
-
 void	ss(t_stack **a, t_stack **b)
 {
-	sb(b);
-	sa(a);
+	swap(b);
+	swap(a);
 	ft_putendl_col_fd(GREEN, "ss", 1);
 }

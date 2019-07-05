@@ -16,9 +16,9 @@
 void	do_op(char *line, t_stack **a, t_stack **b, int c)
 {
 	if (ft_strequ(line, "sa"))
-		sa(a);
+		swap(a);
 	else if (ft_strequ(line, "sb"))
-		sb(b);
+		swap(b);
 	else if (ft_strequ(line, "ss"))
 		ss(a, b);
 	else if (ft_strequ(line, "pa"))

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_functions.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/05 19:46:30 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/05 19:46:32 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <libft.h>
 #include <push_swap.h>
 
@@ -28,13 +40,15 @@ t_stack	*push_in_list(t_stack *list, int num)
 	return (tmp);
 }
 
-void push(t_stack **head_ref, int new_data) 
-{ 
-    t_stack *new_node = (t_stack*)malloc(sizeof(t_stack)); 
-    new_node->number = new_data; 
-    new_node->next = (*head_ref); 
-    new_node->previous = NULL; 
-    if (*head_ref)
-        (*head_ref)->previous = new_node; 
-    (*head_ref) = new_node; 
+void	push(t_stack **head_ref, int new_data)
+{
+	t_stack	*new_node;
+
+	new_node = (t_stack*)malloc(sizeof(t_stack));
+	new_node->number = new_data;
+	new_node->next = (*head_ref);
+	new_node->previous = NULL;
+	if (*head_ref)
+		(*head_ref)->previous = new_node;
+	(*head_ref) = new_node;
 }
