@@ -35,6 +35,7 @@ void				push(t_stack **head_ref, int new_data);
 ** Operations.
 */
 void				swap(t_stack **stack);
+void				push_to(t_stack **to, t_stack **from);
 void				pa(t_stack **a, t_stack **b);
 void				pb(t_stack **a, t_stack **b);
 void				ss(t_stack **a, t_stack **b);

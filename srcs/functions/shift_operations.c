@@ -15,36 +15,22 @@
 
 // To do: Replace pa and pb with push function
 
-void	pa(t_stack **a, t_stack **b)
+
+void	push_to(t_stack **to, t_stack **from)
 {
 	int		num;
 	t_stack	*tmp;
 
-	if (*b == NULL)
+	if (*from == NULL)
 		return ;
-	tmp = *b;
-	num = (*b)->number;
-	push(a, num);
-	*b = (*b)->next;
-	if (*b)
-		(*b)->previous = NULL;
+	tmp = *from;
+	num = (*from)->number;
+	push(to, num);
+	*from = (*from)->next;
+	if (*from)
+		(*from)->previous = NULL;
 	free(tmp);
 	ft_putendl_col_fd(GREEN, "pa", 1);
-}
-
-void	pb(t_stack **a, t_stack **b)
-{
-	int		num;
-	t_stack	*tmp;
-
-	if (*a == NULL)
-		return ;
-	tmp = *a;
-	num = (*a)->number;
-	push(b, num);
-	*a = (*a)->next;
-	free(tmp);
-	ft_putendl_col_fd(GREEN, "pb", 1);
 }
 
 void	swap(t_stack **a)

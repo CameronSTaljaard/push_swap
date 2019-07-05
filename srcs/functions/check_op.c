@@ -17,14 +17,14 @@ void	do_op(char *line, t_stack **a, t_stack **b, int c)
 {
 	if (ft_strequ(line, "sa"))
 		swap(a);
+	else if (ft_strequ(line, "pa"))
+		push_to(a, b);
+	else if (ft_strequ(line, "pb"))
+		push_to(b, a);
 	else if (ft_strequ(line, "sb"))
 		swap(b);
 	else if (ft_strequ(line, "ss"))
 		ss(a, b);
-	else if (ft_strequ(line, "pa"))
-		pa(a, b);
-	else if (ft_strequ(line, "pb"))
-		pb(a, b);
 	else if (ft_strequ(line, "ra"))
 		rotate(a, 1);
 	else if (ft_strequ(line, "rb"))
