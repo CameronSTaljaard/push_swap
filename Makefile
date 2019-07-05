@@ -7,6 +7,7 @@ SRC_DIR = ./srcs/
 LIBRARIES = -lft -Llibft
 LIBFT	= ./libft/*
 INCLUDES = -I./libft/includes -I./includes
+INCLUDES_DIR = ./includes
 
 RED=$(echo -e "\033[31m")
 YELLOW=$(echo -e "\033[0;33m")
@@ -21,7 +22,7 @@ FLAGS =		-Wall -Werror -Wextra
 
 all:		$(NAME_CH)
 
-$(NAME_CH): $(CH_SRCS) $(LIBFT) $(HEADERS_DIRECTORY)
+$(NAME_CH): $(CH_SRCS) $(LIBFT) $(HEADERS_DIRECTORY) $(INCLUDES_DIR)
 		@cd ./libft && make && make clean
 		@echo $(RED)Built libft.$(END);
 		@$(CC) $(FLAGS) $(INCLUDES) $(CH_SRCS) $(LIBRARIES) -o $(NAME_CH)

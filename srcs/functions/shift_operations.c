@@ -10,7 +10,6 @@ void	pa(t_stack **a, t_stack **b)
 		return ;
 	tmp = *b;
 	num = (*b)->number;
-	//*a = push_in_list(a, num);
 	push(a, num);
 	*b = (*b)->next;
 	if (*b)
@@ -28,7 +27,6 @@ void	pb(t_stack **a, t_stack **b)
 		return ;
 	tmp = *a;
 	num = (*a)->number;
-	//*b = push_in_list(a, num);
 	push(b, num);
 	*a = (*a)->next;
 	free(tmp);

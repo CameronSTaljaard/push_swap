@@ -57,14 +57,17 @@ static void	print_bottom()
 	ft_putchar('\n');
 }
 
-void	visualize(t_stack *a, t_stack *b)
+void	visualize(t_stack *a, t_stack *b, int c, char *command)
 {
+	CLEAR
 	print_top();
 	print_content(a, b);
 	print_bottom();
+	if (c)
+		ft_putendl(command);
 }
 
-void	print_stack(t_stack *a)
+void	print_reverse_stack(t_stack *a)
 {
 	t_stack *tmp;
 
@@ -79,7 +82,7 @@ void	print_stack(t_stack *a)
 	}
 }
 
-void	print_reverse_stack(t_stack *a)
+void	print_stack(t_stack *a)
 {
 	t_stack *tmp;
 

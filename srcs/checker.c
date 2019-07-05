@@ -20,10 +20,12 @@ int main(int ac, char **av)
 	}
 	a = init_stack(ac, av);
 	b = NULL;
-	CLEAR;
-	visualize(a, b);
 	while (get_next_line(0, &line))
-		if (!checkline(line, &a, &b))
+	{
+		if (checkline(line))
+			do_op(line, &a, &b, 1);
+		else
 			ERROR;
+	}
 	return (0);
 }
