@@ -15,20 +15,45 @@
 
 void	push_to(t_stack **to, t_stack **from)
 {
-	int		num;
 	t_stack	*tmp;
 
-	if (*from == NULL)
+	if (!*from)
 		return ;
 	tmp = *from;
-	num = (*from)->number;
-	push(to, num);
-	*from = (*from)->next;
+	push(to, (*from)->number);
+	if (stack_size(*from) == 1)
+	{
+		*from = NULL;
+		return ;
+	}
+	if ((*from)->next)
+		*from = (*from)->next;
+	else
+		*from = NULL;
 	if (*from)
 		(*from)->previous = NULL;
 	free(tmp);
 }
+/*
+void	push_to(t_stack **to, t_stack **from)
+{
+	int		num;
+	t_stack	*tmp;
 
+	if (*from)
+		return ;
+	tmp = *from;
+	num = (*from)->number;
+	push(to, num);
+	if ((*from)->next)
+		*from = (*from)->next;
+	else
+		*from = NULL;
+	if (*from)
+		(*from)->previous = NULL;
+	free(tmp);
+}
+*/
 void	swap(t_stack **a)
 {
 	t_stack	*first;

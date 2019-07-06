@@ -13,12 +13,13 @@
 #include <libft.h>
 #include <push_swap.h>
 
-int		stack_size(t_stack *a)
+int		stack_size(t_stack *stack)
 {
 	t_stack *tmp;
 	size_t	i;
 
-	tmp = a;
+	if (stack)
+		tmp = stack;
 	i = 0;
 	while (tmp)
 	{
@@ -51,4 +52,11 @@ void	push(t_stack **head_ref, int new_data)
 	if (*head_ref)
 		(*head_ref)->previous = new_node;
 	(*head_ref) = new_node;
+}
+
+void	free_stack(t_stack *stack)
+{
+	if (stack->next)
+	free_stack(stack->next);
+	free(stack);
 }

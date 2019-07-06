@@ -13,7 +13,7 @@
 #include <push_swap.h>
 #include <libft.h>
 
-void	do_op(char *line, t_stack **a, t_stack **b, int args)
+void	do_op(char *line, t_stack **a, t_stack **b, char args)
 {
 	if (ft_strequ(line, "sa"))
 		swap(a);

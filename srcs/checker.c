@@ -20,24 +20,20 @@ int	main(int ac, char **av)
 	t_stack *a;
 	t_stack *b;
 	char	*line;
-	int		args;
+	char	args;
 
 	args = 0;
 	if (ac < 3)
 		BAD_USE;
 	while(is_arg(av + 1, &args))
 		SHIFT_ARGV;
+	if (ac < 3)
+		BAD_USE;
 	if (!(input_valid(ac, av)))
 		ERROR;
 	INIT_STACKS;
 	if (V_ENABLED)
 		VISUALIZE;
-	while (get_next_line(0, &line))
-	{
-		if (checkline(line))
-			do_op(line, &a, &b, args);
-		else
-			ERROR;
-	}
+	read_input(a, b, &line, args);
 	return (0);
 }
