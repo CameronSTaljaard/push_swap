@@ -74,12 +74,10 @@ static void		print_bottom(void)
 	ft_putchar('\n');
 }
 
-void			visualize(t_stack *a, t_stack *b, int c, char *command)
+void			visualize(t_stack *a, t_stack *b)
 {
 	CLEAR;
 	print_top();
 	print_content(a, b);
 	print_bottom();
-	if (c)
-		ft_putendl(command);
 }

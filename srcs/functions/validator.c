@@ -12,6 +12,21 @@
 
 #include <libft.h>
 
+int					is_arg(char **str, int *args)
+{
+	if (ft_strequ(*str, "-v"))
+	{
+		*args += 1;
+		return (1);
+	}
+	if (ft_strequ(*str, "-c"))
+	{
+		*args += 2;
+		return (1);
+	}
+	return (0);
+}
+
 static int	has_doubles(int ac, char **av)
 {
 	int	*arr;

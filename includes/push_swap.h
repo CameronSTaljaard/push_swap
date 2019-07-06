@@ -17,6 +17,11 @@
 # define DIVIDER ft_putchar_col_fd(GREEN, 0x2503, 1); ft_putchar(' ');
 # define ERROR {ft_putendl_col_fd(RED, "ERROR", 1); exit(0);}
 # define BAD_USE {ft_putendl_col_fd(RED, "Too few arguments.", 1); return (0);}
+# define SHIFT_ARGV {av++; ac--;}
+# define VISUALIZE {ft_putstr("\033[H\033[J"); visualize(a, b);}
+# define INIT_STACKS {a = init_stack(ac, av); b = NULL;}
+# define V_ENABLED args & 1
+# define C_ENABLED (args & (1 << 1)) 
 
 typedef struct		s_stack
 {
@@ -49,6 +54,7 @@ int					checkline(char *line);
 /*
 ** Input checking
 */
+int					is_arg(char **str, int *args);
 int					input_valid(int ac, char **av);
 int					check_op(char *line);
 void				do_op(char *line, t_stack **a, t_stack **b, int c);
@@ -56,7 +62,7 @@ void				do_op(char *line, t_stack **a, t_stack **b, int c);
 /*
 ** Visualizing
 */
-void				visualize(t_stack *a, t_stack *b, int c, char *command);
+void				visualize(t_stack *a, t_stack *b);
 void				print_reverse_stack(t_stack *a);
 void				print_stack(t_stack *a);
 

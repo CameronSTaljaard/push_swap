@@ -13,7 +13,7 @@
 #include <push_swap.h>
 #include <libft.h>
 
-void	do_op(char *line, t_stack **a, t_stack **b, int c)
+void	do_op(char *line, t_stack **a, t_stack **b, int args)
 {
 	if (ft_strequ(line, "sa"))
 		swap(a);
@@ -37,8 +37,8 @@ void	do_op(char *line, t_stack **a, t_stack **b, int c)
 		rotate(b, stack_size(*b) - 1);
 	else if (ft_strequ(line, "rrr"))
 		rrr(a, b);
-	if (c)
-		visualize(*a, *b, c, line);
+	(V_ENABLED) ? visualize(*a, *b) : NULL;
+	(C_ENABLED) ? ft_putendl_col_fd(GREEN, line, 1) : NULL;
 }
 
 int		check_op(char *line)

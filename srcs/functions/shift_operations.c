@@ -13,9 +13,6 @@
 #include <push_swap.h>
 #include <libft.h>
 
-// To do: Replace pa and pb with push function
-
-
 void	push_to(t_stack **to, t_stack **from)
 {
 	int		num;
@@ -30,7 +27,6 @@ void	push_to(t_stack **to, t_stack **from)
 	if (*from)
 		(*from)->previous = NULL;
 	free(tmp);
-	ft_putendl_col_fd(GREEN, "pa", 1);
 }
 
 void	swap(t_stack **a)
@@ -51,5 +47,4 @@ void	ss(t_stack **a, t_stack **b)
 {
 	swap(b);
 	swap(a);
-	ft_putendl_col_fd(GREEN, "ss", 1);
 }
