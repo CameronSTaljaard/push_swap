@@ -9,9 +9,14 @@ LIBFT	= ./libft/*
 INCLUDES = -I./libft/includes -I./includes
 INCLUDES_DIR = ./includes
 
-RED=$(echo -e "\033[31m")
-YELLOW=$(echo -e "\033[0;33m")
-END=$(echo -e "\033[0m")
+NO_COLOR=\x1b[0m
+OK_COLOR=\x1b[32;01m
+ERROR_COLOR=\x1b[31;01m
+WARN_COLOR=\x1b[33;01m
+
+OK_STRING=$(OK_COLOR)[OK]$(NO_COLOR)
+ERROR_STRING=$(ERROR_COLOR)[ERRORS]$(NO_COLOR)
+WARN_STRING=$(WARN_COLOR)[WARNINGS]$(NO_COLOR)
 
 CH_SRCS		= $(SRC_DIR)checker.c $(SRC_DIR)functions/rot_operations.c $(SRC_DIR)functions/shift_operations.c
 CH_SRCS		+= $(SRC_DIR)functions/validator.c $(SRC_DIR)functions/check_op.c 
@@ -26,7 +31,7 @@ $(NAME_CH): $(CH_SRCS) $(LIBFT) $(HEADERS_DIRECTORY) $(INCLUDES_DIR)
 		@cd ./libft && make && make clean
 		@echo $(RED)Built libft.$(END);
 		@$(CC) $(FLAGS) $(INCLUDES) $(CH_SRCS) $(LIBRARIES) -o $(NAME_CH)
-		@echo $(RED)Successfully built $(NAME_CH).$(END);
+		@echo "$(OK_STRING)"
 
 clean:
 		@/bin/rm -f $(CH_OBJS)
