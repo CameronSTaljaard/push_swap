@@ -2,21 +2,22 @@ NAME_CH	= checker
 CC		= gcc
 FLAGS	= -Wall -Wextra -Werror -c
 LIBFT_DIRECTORY = ./libft
-HEADERS_DIRECTORY = ./includes
+HDR_PATH = includes
 SRC_DIR = ./srcs/
 LIBRARIES = -lft -Llibft
 LIBFT	= ./libft/*
 INCLUDES = -I./libft/includes -I./includes
 INCLUDES_DIR = ./includes
 
-NO_COLOR=\x1b[0m
-OK_COLOR=\x1b[32;01m
-ERROR_COLOR=\x1b[31;01m
-WARN_COLOR=\x1b[33;01m
-
-OK_STRING=$(OK_COLOR)[OK]$(NO_COLOR)
-ERROR_STRING=$(ERROR_COLOR)[ERRORS]$(NO_COLOR)
-WARN_STRING=$(WARN_COLOR)[WARNINGS]$(NO_COLOR)
+# ----- Colors -----
+BLACK:="\033[1;30m"
+RED:="\033[1;31m"
+GREEN:="\033[1;32m"
+CYAN:="\033[1;35m"
+PURPLE:="\033[1;36m"
+WHITE:="\033[1;37m"
+EOC:="\033[0;0m"
+# ==================
 
 CH_SRCS		= $(SRC_DIR)checker.c $(SRC_DIR)functions/rot_operations.c $(SRC_DIR)functions/shift_operations.c
 CH_SRCS		+= $(SRC_DIR)functions/validator.c $(SRC_DIR)functions/check_op.c 
@@ -28,10 +29,10 @@ FLAGS =		-Wall -Werror -Wextra
 all:		$(NAME_CH)
 
 $(NAME_CH): $(CH_SRCS) $(LIBFT) $(HEADERS_DIRECTORY) $(INCLUDES_DIR)
-		@cd ./libft && make && make clean
-		@echo $(RED)Built libft.$(END);
+		@cd ./libft && make
+		@echo $(GREEN)Built libft.$(EOC);
 		@$(CC) $(FLAGS) $(INCLUDES) $(CH_SRCS) $(LIBRARIES) -o $(NAME_CH)
-		@echo "$(OK_STRING)"
+		@echo $(GREEN)"Compiled checker." $(EOC)
 
 clean:
 		@/bin/rm -f $(CH_OBJS)

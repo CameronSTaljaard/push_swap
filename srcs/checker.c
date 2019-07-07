@@ -34,6 +34,8 @@ int	main(int ac, char **av)
 	INIT_STACKS;
 	if (V_ENABLED)
 		VISUALIZE;
+	if (sorted(a))
+		OK;
 	read_input(a, b, &line, args);
 	return (0);
 }

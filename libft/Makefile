@@ -2,10 +2,15 @@ NAME		= libft.a
 CC			= gcc
 INCLUDES 	= -I./includes
 
-RED			=	$(echo -e "\033[0;31m")
-GREEN		=	$(echo -e "\e[32m")
-YELLOW		=	$(echo -e "\033[0;33m")
-END			=	$(echo -e "\033[0m")
+# ----- Colors -----
+BLACK:="\033[1;30m"
+RED:="\033[1;31m"
+GREEN:="\033[1;32m"
+CYAN:="\033[1;35m"
+PURPLE:="\033[1;36m"
+WHITE:="\033[1;37m"
+EOC:="\033[0;0m"
+# ==================
 
 # Part 1
 SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_memccpy.c
@@ -31,17 +36,17 @@ all:		$(NAME) $(SRCS)
 
 $(NAME): $(SRCS)
 		@gcc $(FLAGS) $(INCLUDES) $(SRCS)
-		@echo $(GREEN)Compiled source files.
+		@echo $(GREEN)Compiled source files.$(EOC)
 		@ar rc $(NAME) $(OBJS)
 		@ranlib $(NAME)
-		@echo $(GREEN)Built library.
+		@echo $(GREEN)Built library.$(EOC)
 
 clean:
 		@/bin/rm -f $(OBJS)
-		@echo $(GREEN)Cleaned objects.
+		@echo $(GREEN)Cleaned objects.$(EOC)
 
 fclean: clean
 		@/bin/rm -f $(NAME)
-		@echo $(GREEN)Cleaned library.
+		@echo $(GREEN)Cleaned library.$(EOC)
 
 re: fclean all

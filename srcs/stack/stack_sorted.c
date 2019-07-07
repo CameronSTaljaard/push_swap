@@ -10,7 +10,7 @@ int	sorted(t_stack *a)
 	{
 		temp = a->number;
 		a = a->next;
-		if (temp < a->number && a)
+		if (temp > a->number && a)
 			return (0);
 	}
 	return (1);
