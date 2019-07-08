@@ -24,7 +24,6 @@ CH_SRCS		+= $(SRC_DIR)functions/validator.c $(SRC_DIR)functions/check_op.c
 CH_SRCS		+= $(SRC_DIR)stack/stack_handler.c $(SRC_DIR)stack/stack_functions.c
 CH_SRCS		+= $(SRC_DIR)/visualizer/visualizer.c $(SRC_DIR)/functions/read_input.c $(SRC_DIR)/stack/stack_sorted.c
 CH_OBJS		= $(CH_SRCS:.c=.o)
-FLAGS =		-Wall -Werror -Wextra
 
 all:		$(NAME_CH)
 
