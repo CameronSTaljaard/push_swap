@@ -23,11 +23,11 @@ int	main(int ac, char **av)
 	char	args;
 
 	args = 0;
-	if (ac < 3)
+	if (ac == 1)
 		BAD_USE;
 	while(is_arg(av + 1, &args))
 		SHIFT_ARGV;
-	if (ac < 3)
+	if (ac == 1)
 		BAD_USE;
 	if (!(input_valid(ac, av)))
 		ERROR;

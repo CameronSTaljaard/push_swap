@@ -77,6 +77,7 @@ static void		print_bottom(void)
 void			visualize(t_stack *a, t_stack *b)
 {
 	CLEAR;
+	// Print header.
 	print_top();
 	print_content(a, b);
 	print_bottom();

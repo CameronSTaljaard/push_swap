@@ -11,16 +11,21 @@
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <push_swap.h>
 
-int					is_arg(char **str, int *args)
+int			is_arg(char **str, char *args)
 {
 	if (ft_strequ(*str, "-v"))
 	{
+		if (*args & 1)
+			ERROR;
 		*args += 1;
 		return (1);
 	}
 	if (ft_strequ(*str, "-c"))
 	{
+		if (*args & (1 << 1))
+			ERROR;
 		*args += 2;
 		return (1);
 	}
