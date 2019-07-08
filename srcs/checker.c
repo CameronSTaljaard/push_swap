@@ -31,7 +31,14 @@ int	main(int ac, char **av)
 		BAD_USE;
 	if (!(input_valid(ac, av)))
 		ERROR;
-	INIT_STACKS;
+	if (!string_input(av[1]))
+		INIT_STACKS;
+	if (string_input(av[1]))
+	{
+		ft_putendl_col_fd(RED, "OH, GOD, NOT STRINGS! D:", 1);
+		exit(1);	
+	}
+	
 	if (V_ENABLED)
 		VISUALIZE;
 	if (sorted(a))
