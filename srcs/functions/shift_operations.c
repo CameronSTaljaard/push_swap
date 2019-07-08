@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shift_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 19:53:58 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/07/05 19:53:59 by ctaljaar         ###   ########.fr       */
+/*   Updated: 2019/07/08 10:47:33 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,11 @@ void	push_to(t_stack **to, t_stack **from)
 		(*from)->previous = NULL;
 	free(tmp);
 }
-/*
-void	push_to(t_stack **to, t_stack **from)
-{
-	int		num;
-	t_stack	*tmp;
 
-	if (*from)
-		return ;
-	tmp = *from;
-	num = (*from)->number;
-	push(to, num);
-	if ((*from)->next)
-		*from = (*from)->next;
-	else
-		*from = NULL;
-	if (*from)
-		(*from)->previous = NULL;
-	free(tmp);
-}
-*/
 void	swap(t_stack **a)
 {
+	if (!*a)
+		return ;
 	t_stack	*first;
 	t_stack	*second;
 

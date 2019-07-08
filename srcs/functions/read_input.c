@@ -9,7 +9,7 @@ void		read_input(t_stack *a, t_stack *b, char **line, char args)
 		if (checkline(*line))
 		{
 			do_op(*line, &a, &b, args);
-			free(*line);
+			free (*line);
 		}
 		else if (!checkline(*line))
 		{
@@ -19,7 +19,6 @@ void		read_input(t_stack *a, t_stack *b, char **line, char args)
 		}
 		if (sorted(a) && !b)
 		{
-			free(*line);
 			free_stack(a);
 			OK;
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 19:36:56 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/07/05 19:36:58 by ctaljaar         ###   ########.fr       */
+/*   Updated: 2019/07/08 10:36:58 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ int	main(int ac, char **av)
 	if (sorted(a))
 		OK;
 	read_input(a, b, &line, args);
+	if (!sorted(a) || b)
+		KO;
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_op.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 19:37:54 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/07/05 19:37:55 by ctaljaar         ###   ########.fr       */
+/*   Updated: 2019/07/08 10:36:07 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	do_op(char *line, t_stack **a, t_stack **b, char args)
 		rrr(a, b);
 	(V_ENABLED) ? visualize(*a, *b) : NULL;
 	(C_ENABLED) ? ft_putendl_col_fd(GREEN, line, 1) : NULL;
+	//sorted(*a) && (!*b) ? (OK) : NULL;
 }
 
 int		check_op(char *line)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 19:46:30 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/07/05 19:46:32 by ctaljaar         ###   ########.fr       */
+/*   Updated: 2019/07/08 10:03:22 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ int		stack_size(t_stack *stack)
 	t_stack *tmp;
 	size_t	i;
 
-	if (stack)
-		tmp = stack;
+	if (!stack)
+		return (0);
+	tmp = stack;
 	i = 0;
 	while (tmp)
 	{
