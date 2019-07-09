@@ -92,9 +92,9 @@ int			input_valid(int ac, char **av)
 		if (ac > 2)
 			ERROR;
 		str = ft_strsplit(av[1], ' ');
-		string_input_valid(str);
 	}
 	else
-		int_input_check(ac, av);
+		if (!int_input_check(ac, av))
+			ERROR;		
 	return (1);
 }

@@ -21,7 +21,7 @@ EOC:="\033[0;0m"
 CH_SRCS		= $(SRC_DIR)checker.c $(SRC_DIR)functions/rot_operations.c $(SRC_DIR)functions/shift_operations.c
 CH_SRCS		+= $(SRC_DIR)functions/validator.c $(SRC_DIR)functions/check_op.c $(SRC_DIR)functions/string_validator.c
 CH_SRCS		+= $(SRC_DIR)stack/stack_handler.c $(SRC_DIR)stack/stack_functions.c $(SRC_DIR)functions/int_validator.c
-CH_SRCS		+= $(SRC_DIR)/visualizer/visualizer.c $(SRC_DIR)/functions/read_input.c $(SRC_DIR)/stack/stack_sorted.c
+CH_SRCS		+= $(SRC_DIR)/visualizer/visualizer.c $(SRC_DIR)/functions/read_input.c
 CH_OBJS		= $(CH_SRCS:.c=.o)
 FLAGS =		-Wall -Werror -Wextra
 

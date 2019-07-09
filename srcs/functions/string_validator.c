@@ -1,6 +1,7 @@
 #include <libft.h>
 #include <push_swap.h>
 
+/*
 int			string_input_valid(char **str)
 {
 	while (*str)
@@ -10,15 +11,13 @@ int			string_input_valid(char **str)
 			ERROR;
 		if (!int_check(*str))
 			ERROR;
-		*(*str)++;
+		str++;
 		//if (has_doubles(ac, av))
 		//	return (FALSE);
 	}
 	return (TRUE);
 }
-
-
-
+*/
 int			string_input(char *str)
 {
 	while (*str)

@@ -35,10 +35,9 @@ int	main(int ac, char **av)
 		INIT_STACKS;
 	if (string_input(av[1]))
 	{
-		ft_putendl_col_fd(RED, "OH, GOD, NOT STRINGS! D:", 1);
+		ft_putendl_col_fd(RED, "String input unsupported.", 1);
 		exit(1);	
 	}
-	
 	if (V_ENABLED)
 		VISUALIZE;
 	if (sorted(a))

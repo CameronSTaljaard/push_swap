@@ -13,6 +13,13 @@
 #include <push_swap.h>
 #include <libft.h>
 
+/*static void		print_header(void)
+{
+	ft_putchar_col_fd(GREEN, 0x250F, 1);
+
+	ft_putendl("");
+}*/
+
 static void		print_top(void)
 {
 	int		i;
