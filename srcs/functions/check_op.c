@@ -39,7 +39,6 @@ void	do_op(char *line, t_stack **a, t_stack **b, char args)
 		rrr(a, b);
 	(V_ENABLED) ? visualize(*a, *b) : NULL;
 	(C_ENABLED) ? ft_putendl_col_fd(GREEN, line, 1) : NULL;
-	//sorted(*a) && (!*b) ? (OK) : NULL;
 }
 
 int		check_op(char *line)

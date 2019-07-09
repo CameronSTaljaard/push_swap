@@ -66,7 +66,7 @@ int	sorted(t_stack *a)
 {
 	int temp;
 
-	if (!a || !a->next)
+	if (!a)
 		KO;
 	while (a->next)
 	{

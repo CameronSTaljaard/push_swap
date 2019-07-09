@@ -39,6 +39,8 @@ void	swap(t_stack **a)
 {
 	if (!*a)
 		return ;
+	if (stack_size(*a) < 2)
+		return ;
 	t_stack	*first;
 	t_stack	*second;
 
