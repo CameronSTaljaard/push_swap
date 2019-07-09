@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 	if (sorted(a))
 		OK;
 	read_input(a, b, &line, args);
-	if (!sorted(a) || b)
-		KO;
+	//if (!sorted(a) || b != NULL)
+	//	KO;
 	return (0);
 }
