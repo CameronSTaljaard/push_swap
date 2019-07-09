@@ -38,11 +38,11 @@ int	has_doubles(int ac, char **av)
 	int	i;
 	int j;
 
-	i = 1;
+	i = 0;
 	arr = (int *)malloc(sizeof(int) * ac - 1);
 	while (++i < ac)
 		arr[i] = ft_atoi(av[i]);
-	i = 2;
+	i = 0;
 	while (i < ac)
 	{
 		j = i + 1;
