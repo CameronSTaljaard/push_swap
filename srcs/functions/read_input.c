@@ -17,7 +17,7 @@ void		read_input(t_stack **a, t_stack **b, char **line, char args)
 			free_stack(*a);
 			ERROR;
 		}
-		if (sorted(*a) && !b)
+		if (sorted(*a) && !*b)
 		{
 			free_stack(*a);
 			OK;
