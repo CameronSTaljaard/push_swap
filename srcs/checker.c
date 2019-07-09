@@ -42,8 +42,8 @@ int	main(int ac, char **av)
 		VISUALIZE;
 	if (sorted(a))
 		OK;
-	read_input(a, b, &line, args);
-	//if (!sorted(a) || b != NULL)
-	//	KO;
+	read_input(&a, &b, &line, args);
+	if (!sorted(a) || b)
+		KO;
 	return (0);
 }

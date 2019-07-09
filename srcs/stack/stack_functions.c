@@ -66,12 +66,13 @@ int	sorted(t_stack *a)
 {
 	int temp;
 
-	if (!a)
+	if (!a || !a->next)
 		KO;
 	while (a->next)
 	{
 		temp = a->number;
-		a = a->next;
+		if (a)
+			a = a->next;
 		if (a)
 			if (temp > a->number)
 				return (0);

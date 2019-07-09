@@ -64,13 +64,13 @@ int					is_arg(char **str, char *args);
 int					input_valid(int ac, char **av);
 int					check_op(char *line);
 void				do_op(char *line, t_stack **a, t_stack **b, char args);
-void				read_input(t_stack *a, t_stack *b, char **line, char args);
+void				read_input(t_stack **a, t_stack **b, char **line, char args);
 int					string_input(char *str);
 int					int_input_check(int ac, char **av);
 int					only_digits(char *str);
 int					int_check(char *str);
 int					has_doubles(int ac, char **av);
-int			string_input_valid(char **str);
+int					string_input_valid(char **str);
 
 /*
 ** Visualizing
