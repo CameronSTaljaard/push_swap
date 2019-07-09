@@ -61,3 +61,20 @@ void	free_stack(t_stack *stack)
 	free_stack(stack->next);
 	free(stack);
 }
+
+int	sorted(t_stack *a)
+{
+	int temp;
+
+	if (!a)
+		KO;
+	while (a->next)
+	{
+		temp = a->number;
+		a = a->next;
+		if (a)
+			if (temp > a->number)
+				return (0);
+	}
+	return (1);
+}
