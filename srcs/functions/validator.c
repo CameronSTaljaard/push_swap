@@ -32,7 +32,7 @@ int			is_arg(char **str, char *args)
 	return (0);
 }
 
-int	has_doubles(int ac, char **av)
+int			has_doubles(int ac, char **av)
 {
 	int	*arr;
 	int	i;
@@ -58,7 +58,7 @@ int	has_doubles(int ac, char **av)
 	return (0);
 }
 
-int	int_check(char *str)
+int			int_check(char *str)
 {
 	if (*str == '-')
 	{
@@ -70,7 +70,7 @@ int	int_check(char *str)
 	return (TRUE);
 }
 
-int	only_digits(char *str)
+int			only_digits(char *str)
 {
 	if (*str == '-')
 		str++;
@@ -83,18 +83,17 @@ int	only_digits(char *str)
 
 int			input_valid(int ac, char **av)
 {
-	int	i;
-	char **str;
+	int		i;
+	char	**str;
 
 	i = 0;
 	if (string_input(av[0]))
 	{
-		if (ac > 2)
+		if (ac > 1)
 			ERROR;
 		str = ft_strsplit(av[0], ' ');
 	}
-	else
-		if (!int_input_check(ac, av))
-			ERROR;		
+	else if (!int_input_check(ac, av))
+		ERROR;
 	return (1);
 }

@@ -19,34 +19,24 @@ int	main(int ac, char **av)
 {
 	t_stack *a;
 	t_stack *b;
-	char	*line;
 	char	args;
-	char	**string_argv;
+	char	**s_argv;
 
 	SHIFT_ARGV;
+	(!ac) ? (BAD_USE) : NULL;
 	args = 0;
-	if (ac == 0)
-		BAD_USE;
-	while(is_arg(av, &args))
+	while (is_arg(av, &args))
 		SHIFT_ARGV;
-	if (ac == 0)
-		BAD_USE;
-	if (!(input_valid(ac, av)))
-		ERROR;
+	(!ac) ? (BAD_USE) : NULL;
+	(!(input_valid(ac, av))) ? (ERROR) : NULL;
+	s_argv = atoi_split(av);
 	if (!string_input(av[0]))
-		(INIT_STACKS);
-	if (string_input(av[0]))
-	{
-		string_argv = atoi_split(av);
-		a = init_stack(length_of(string_argv), string_argv);
-		b = NULL;
-	}
-	if (V_ENABLED)
-		VISUALIZE;
-	if (sorted(a))
-		OK;
-	read_input(&a, &b, &line, args);
-	if (!sorted(a) || b)
-		KO;
+		(INIT_STACKS_1);
+	else
+		INIT_STACKS_2;
+	(V_ENABLED) ? (VISUALIZE) : NULL;
+	(sorted(a)) ? (OK) : NULL;
+	read_input(&a, &b, args);
+	(!sorted(a) || b) ? (KO) : NULL;
 	return (0);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   int_validator.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/10 19:50:17 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/10 19:50:18 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <libft.h>
 #include <push_swap.h>
 
@@ -19,7 +31,7 @@ int			int_input_check(int ac, char **av)
 	return (TRUE);
 }
 
-char	**atoi_split(char **av)
+char		**atoi_split(char **av)
 {
 	int		i;
 	char	**test;
@@ -32,7 +44,7 @@ char	**atoi_split(char **av)
 	return (test);
 }
 
-int		length_of(char **av)
+int			length_of(char **av)
 {
 	int i;
 

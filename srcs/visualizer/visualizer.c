@@ -16,6 +16,7 @@
 static void		print_header(void)
 {
 	int i;
+
 	ft_putchar_col_fd(GREEN, 0x250F, 1);
 	i = -1;
 	while (++i < 13)
@@ -26,7 +27,6 @@ static void		print_header(void)
 		ft_putchar_col_fd(GREEN, 0x2501, 1);
 	ft_putchar_col_fd(GREEN, 0x2513, 1);
 	ft_putendl("");
-
 	DIVIDER;
 	ft_putstr_col_fd(CYAN, "Stack A     ", 1);
 	DIVIDER;

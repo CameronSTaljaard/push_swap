@@ -37,13 +37,13 @@ void	push_to(t_stack **to, t_stack **from)
 
 void	swap(t_stack **a)
 {
+	t_stack	*first;
+	t_stack	*second;
+
 	if (!*a)
 		return ;
 	if (stack_size(*a) < 2)
 		return ;
-	t_stack	*first;
-	t_stack	*second;
-
 	first = *a;
 	second = (*a)->next;
 	first->next = second->next;

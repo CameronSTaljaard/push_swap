@@ -1,23 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   string_validator.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/10 19:46:06 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/10 19:46:07 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <libft.h>
 #include <push_swap.h>
 
-/*
-int			string_input_valid(char **str)
-{
-	while (*str)
-	{
-		ft_putendl_col_fd(RED, *str, 1);
-		if (!only_digits(*str))
-			ERROR;
-		if (!int_check(*str))
-			ERROR;
-		str++;
-		//if (has_doubles(ac, av))
-		//	return (FALSE);
-	}
-	return (TRUE);
-}
-*/
 int			string_input(char *str)
 {
 	while (*str)

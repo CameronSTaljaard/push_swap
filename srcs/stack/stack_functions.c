@@ -58,11 +58,11 @@ void	push(t_stack **head_ref, int new_data)
 void	free_stack(t_stack *stack)
 {
 	if (stack->next)
-	free_stack(stack->next);
+		free_stack(stack->next);
 	free(stack);
 }
 
-int	sorted(t_stack *a)
+int		sorted(t_stack *a)
 {
 	int temp;
 
