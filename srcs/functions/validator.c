@@ -87,11 +87,11 @@ int			input_valid(int ac, char **av)
 	char **str;
 
 	i = 0;
-	if (string_input(av[1]))
+	if (string_input(av[0]))
 	{
 		if (ac > 2)
 			ERROR;
-		str = ft_strsplit(av[1], ' ');
+		str = ft_strsplit(av[0], ' ');
 	}
 	else
 		if (!int_input_check(ac, av))

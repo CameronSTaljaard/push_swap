@@ -72,6 +72,9 @@ int					int_check(char *str);
 int					has_doubles(int ac, char **av);
 int					string_input_valid(char **str);
 
+
+char				**atoi_split(char **av);
+int					length_of(char **av);
 /*
 ** Visualizing
 */

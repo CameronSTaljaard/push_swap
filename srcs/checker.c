@@ -21,22 +21,25 @@ int	main(int ac, char **av)
 	t_stack *b;
 	char	*line;
 	char	args;
+	char	**string_argv;
 
+	SHIFT_ARGV;
 	args = 0;
-	if (ac == 1)
+	if (ac == 0)
 		BAD_USE;
-	while(is_arg(av + 1, &args))
+	while(is_arg(av, &args))
 		SHIFT_ARGV;
-	if (ac == 1)
+	if (ac == 0)
 		BAD_USE;
 	if (!(input_valid(ac, av)))
 		ERROR;
-	if (!string_input(av[1]))
-		INIT_STACKS;
-	if (string_input(av[1]))
+	if (!string_input(av[0]))
+		(INIT_STACKS);
+	if (string_input(av[0]))
 	{
-		ft_putendl_col_fd(RED, "String input unsupported.", 1);
-		exit(1);	
+		string_argv = atoi_split(av);
+		a = init_stack(length_of(string_argv), string_argv);
+		b = NULL;
 	}
 	if (V_ENABLED)
 		VISUALIZE;

@@ -20,12 +20,13 @@ t_stack	*init_stack(int ac, char **av)
 	t_stack	*tmp;
 	int		i;
 
-	head = stack_new(atoi(av[1]));
+	head = stack_new(atoi(av[0]));
 	i = 1;
-	while (++i < ac)
+	while (i < ac)
 	{
 		tmp = stack_new(atoi(av[i]));
 		stack_add(&head, tmp);
+		i++;
 	}
 	return (head);
 }
