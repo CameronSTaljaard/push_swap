@@ -1,4 +1,5 @@
 NAME_CH	= checker
+NAME_PS = push_swap
 CC		= gcc
 LIBFT_DIRECTORY = ./libft
 HDR_PATH = includes
@@ -21,9 +22,10 @@ EOC:="\033[0;0m"
 CH_SRCS		= $(SRC_DIR)checker.c $(SRC_DIR)functions/rot_operations.c $(SRC_DIR)functions/shift_operations.c
 CH_SRCS		+= $(SRC_DIR)functions/validator.c $(SRC_DIR)functions/check_op.c $(SRC_DIR)functions/string_validator.c
 CH_SRCS		+= $(SRC_DIR)stack/stack_handler.c $(SRC_DIR)stack/stack_functions.c $(SRC_DIR)functions/int_validator.c
-CH_SRCS		+= $(SRC_DIR)/visualizer/visualizer.c $(SRC_DIR)/functions/read_input.c
-CH_OBJS		= $(CH_SRCS:.c=.o)
-FLAGS =		-Wall -Werror -Wextra
+CH_SRCS		+= srcs/visualizer/visualizer.c srcs/functions/read_input.c
+
+CH_OBJS		= $(SRCS:.c=.o)
+FLAGS 		= -Wall -Werror -Wextra
 
 all:		$(NAME_CH)
 
@@ -32,6 +34,11 @@ $(NAME_CH): $(CH_SRCS) $(LIBFT) $(HEADERS_DIRECTORY) $(INCLUDES_DIR)
 		@echo $(GREEN)Built libft.$(EOC);
 		@$(CC) $(FLAGS) $(INCLUDES) $(CH_SRCS) $(LIBRARIES) -o $(NAME_CH)
 		@echo $(GREEN)"Compiled checker." $(EOC)
+
+$(NAME_PS):
+		@echo $(RED)$(PS_SRCS)$(EOC)
+		@$(CC) $(FLAGS) $(INCLUDES) $(PS_SRCS) $(LIBRARIES) -o $(NAME_PS)
+		@echo $(GREEN)"Compiled push_swap." $(EOC)
 
 clean:
 		@/bin/rm -f $(CH_OBJS)

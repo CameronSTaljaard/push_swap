@@ -19,23 +19,26 @@ int	main(int ac, char **av)
 {
 	t_stack *a;
 	t_stack *b;
-	char	args;
 	char	**s_argv;
 
 	SHIFT_ARGV;
 	(!ac) ? (BAD_USE) : NULL;
-	args = 0;
-	while (is_arg(av, &args))
-		SHIFT_ARGV;
-	(!ac) ? (BAD_USE) : NULL;
+	/*
+	** Error if input is invalid.
+	*/
 	(!(input_valid(ac, av))) ? (ERROR) : NULL;
+	/*
+	** Initialize stack a, and stack b depending on if input
+	** was a string, or array of numbers.
+	*/
 	s_argv = atoi_split(av);
 	(!string_input(av[0])) ? (INIT_STACKS_1) : (INIT_STACKS_2);
-	(V_ENABLED) ? (VISUALIZE) : NULL;
+	/*
+	** Does nothing if a is already sorted.
+	*/
 	if (sorted(a))
-		OK_FREE;
-	read_input(&a, &b, args);
-	if (!sorted(a) || b)
-		OK_FREE;
+		return (0);
+	else
+		sort(a, b);
 	return (0);
 }

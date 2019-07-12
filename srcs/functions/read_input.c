@@ -28,7 +28,8 @@ void		read_input(t_stack **a, t_stack **b, char args)
 		else if (!checkline(line))
 		{
 			free(line);
-			free_stack(*a);
+			(*a) ? free_stack(*a) : NULL;
+			(*b) ? free_stack(*b) : NULL;
 			ERROR;
 		}
 		if (*a && sorted(*a) && !*b)

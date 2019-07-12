@@ -15,12 +15,13 @@
 # include <stdlib.h>
 
 # define INIT_STACKS_1 {a = init_stack(ac, av); b = NULL;}
-# define INIT_STACKS_2 a = init_stack(length_of(s_argv), s_argv); b = NULL;
+# define INIT_STACKS_2 {a = init_stack(length_of(s_argv), s_argv); b = NULL;}
 
 # define ERROR {ft_putendl_col_fd(RED, "ERROR", 1); exit(0);}
 # define BAD_USE {ft_putendl_col_fd(RED, "Too few arguments.", 1); return (0);}
 # define KO {ft_putendl_col_fd(RED, "KO", 1); exit(0);}
 # define OK {ft_putendl_col_fd(GREEN, "OK", 1); exit(0);}
+# define OK_FREE {ft_putendl_col_fd(GREEN, "OK", 1); (FREE); exit(0);}
 
 # define CLEAR ft_putstr("\033[H\033[J");
 # define DIVIDER ft_putchar_col_fd(GREEN, 0x2503, 1); ft_putchar(' ');
@@ -29,7 +30,7 @@
 # define SHIFT_ARGV {av++; ac--;}
 # define V_ENABLED args & 1
 # define C_ENABLED (args & (1 << 1))
-# define FREE {free_stack(a); a = NULL; free(*line); line = NULL;}
+# define FREE {free_stack(a); a = NULL;}
 
 typedef struct		s_stack
 {

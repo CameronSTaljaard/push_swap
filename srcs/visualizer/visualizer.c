@@ -6,12 +6,13 @@
 /*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 19:38:59 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/07/05 19:39:00 by ctaljaar         ###   ########.fr       */
+/*   Updated: 2019/07/12 12:59:25 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
+#include <time.h>
 
 static void		print_header(void)
 {
@@ -103,4 +104,5 @@ void			visualize(t_stack *a, t_stack *b)
 	print_top();
 	print_content(a, b);
 	print_bottom();
+	usleep(50000);
 }
