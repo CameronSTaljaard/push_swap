@@ -19,15 +19,15 @@ WHITE:="\033[1;37m"
 EOC:="\033[0;0m"
 # ==================
 
-CH_SRCS		= $(SRC_DIR)checker.c $(SRC_DIR)functions/rot_operations.c $(SRC_DIR)functions/shift_operations.c
+CH_SRCS		= $(SRC_DIR)checker/checker.c $(SRC_DIR)functions/rot_operations.c $(SRC_DIR)functions/shift_operations.c
 CH_SRCS		+= $(SRC_DIR)functions/validator.c $(SRC_DIR)functions/check_op.c $(SRC_DIR)functions/string_validator.c
-CH_SRCS		+= $(SRC_DIR)stack/stack_handler.c $(SRC_DIR)stack/stack_functions.c $(SRC_DIR)functions/int_validator.c
-CH_SRCS		+= srcs/visualizer/visualizer.c srcs/functions/read_input.c
+CH_SRCS		+= $(SRC_DIR)functions/stack_handler.c $(SRC_DIR)functions/stack_functions.c $(SRC_DIR)functions/int_validator.c
+CH_SRCS		+= srcs/checker/visualizer.c srcs/functions/read_input.c
 
 CH_OBJS		= $(SRCS:.c=.o)
 FLAGS 		= -Wall -Werror -Wextra
 
-all:		$(NAME_CH)
+all:		$(NAME_CH) $(NAME_PS)
 
 $(NAME_CH): $(CH_SRCS) $(LIBFT) $(HEADERS_DIRECTORY) $(INCLUDES_DIR)
 		@cd ./libft && make
@@ -36,7 +36,6 @@ $(NAME_CH): $(CH_SRCS) $(LIBFT) $(HEADERS_DIRECTORY) $(INCLUDES_DIR)
 		@echo $(GREEN)"Compiled checker." $(EOC)
 
 $(NAME_PS):
-		@echo $(RED)$(PS_SRCS)$(EOC)
 		@$(CC) $(FLAGS) $(INCLUDES) $(PS_SRCS) $(LIBRARIES) -o $(NAME_PS)
 		@echo $(GREEN)"Compiled push_swap." $(EOC)
 
