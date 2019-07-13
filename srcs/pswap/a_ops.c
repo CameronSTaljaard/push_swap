@@ -12,42 +12,42 @@
 
 #include "push_swap.h"
 
-void		sa(t_stackdata *a)
+void		swap(t_stackdata *stack)
 {
 	t_stack *temp;
 
-	if (a->lst && a->lst->next)
+	if (stack->lst && stack->lst->next)
 	{
-		temp = a->lst;
-		a->lst = a->lst->next;
-		temp->next = a->lst->next;
-		a->lst->next = temp;
+		temp = stack->lst;
+		stack->lst = stack->lst->next;
+		temp->next = stack->lst->next;
+		stack->lst->next = temp;
 	}
 	return ;
 }
 
-void		pa(t_stackdata *a, t_stackdata *b)
+void		push_to(t_stackdata *to, t_stackdata *from)
 {
 	t_stack *temp;
 
-	temp = b->lst;
-	if (b->lst)
-		b->lst = b->lst->next;
+	temp = from->lst;
+	if (from->lst)
+		from->lst = from->lst->next;
 	else
 		return ;
-	temp->next = a->lst;
-	a->lst = temp;
+	temp->next = to->lst;
+	to->lst = temp;
 }
 
-void		ra(t_stackdata *a)
+void		rotate(t_stackdata *stack)
 {
 	t_stack *temp;
 	t_stack *head;
 
-	head = a->lst;
-	temp = a->lst;
-	if (a->lst && a->lst->next)
-		a->lst = a->lst->next;
+	head = stack->lst;
+	temp = stack->lst;
+	if (stack->lst && stack->lst->next)
+		stack->lst = stack->lst->next;
 	else
 		return ;
 	if (temp->value > MIN_INT)
@@ -59,7 +59,7 @@ void		ra(t_stackdata *a)
 	}
 }
 
-void		rra(t_stackdata *a)
+void		rrx(t_stackdata *a)
 {
 	t_stack *head;
 	t_stack *temp;

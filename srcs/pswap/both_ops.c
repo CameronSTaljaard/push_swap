@@ -14,18 +14,18 @@
 
 void		ss(t_stackdata *a, t_stackdata *b)
 {
-	sa(a);
-	sb(b);
+	swap(a);
+	swap(b);
 }
 
 void		rr(t_stackdata *a, t_stackdata *b)
 {
-	ra(a);
-	rb(b);
+	rotate(a);
+	rotate(b);
 }
 
 void		rrr(t_stackdata *a, t_stackdata *b)
 {
-	rra(a);
-	rrb(b);
+	rrx(a);
+	rrx(b);
 }

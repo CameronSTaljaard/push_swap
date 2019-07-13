@@ -102,33 +102,6 @@ void		secondhighest(t_ps *ps)
 	}
 }
 
-void		frankenstein(t_ps *ps)
-{
-	int i;
-
-	i = 0;
-	while (!(check_sorted(&ps->a) == 1))
-	{
-		i++;
-		if (checkdoublerule(ps))
-			continue;
-		if ((AA) && (A->value > ABV))
-			RULE("ra");
-		if ((AA) && (A->value > AN->value) && (A->value < ABV))
-			RULE("sa");
-		if ((BB) && (B->value < BBV))
-			RULE("rb");
-		if ((BB) && (BN->value > B->value))
-			RULE("sb");
-		if ((AA) && (ABV < A->value) && (ABV < AN->value))
-			RULE("rra");
-		if ((AA) && (AN->value > A->value) && (AN->value > ABV))
-			RULE("sa");
-		rotate_b(ps, i);
-		RULE("pb");
-	}
-}
-
 void		partition(t_ps *ps)
 {
 	int parts;
