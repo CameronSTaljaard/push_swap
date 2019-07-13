@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/14 09:31:27 by agabrie           #+#    #+#             */
-/*   Updated: 2018/09/03 11:15:22 by agabrie          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdlib.h>
@@ -46,13 +34,10 @@ t_stack			*new_node(int value);
 int				pop(t_stackdata *list);
 void			push(t_stackdata *list, int val);
 int				peek(t_stack *top);
-void			printstack(t_stack *stack);
 void			rule(t_stackdata *a, t_stackdata *b, char *line);
-void			printbothstacks(t_stackdata *a, t_stackdata *b);
 int				check_sorted(t_stackdata *a);
 int				check_largest(t_stackdata *stack);
 int				check_inverted(t_stackdata *a);
-void			windows_tests(t_stackdata *a, t_stackdata *b);
 void			swap(t_stackdata *a);
 void			push_to(t_stackdata *a, t_stackdata *b);
 void			rotate(t_stackdata *a);

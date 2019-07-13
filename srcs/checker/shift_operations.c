@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 #include <libft.h>
 
 void	push_to(t_stack **to, t_stack **from)

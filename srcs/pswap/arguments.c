@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   arguments.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/15 15:45:27 by agabrie           #+#    #+#             */
-/*   Updated: 2018/09/03 10:10:50 by agabrie          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 void		rule(t_stackdata *a, t_stackdata *b, char *line)
@@ -38,15 +26,6 @@ void		rule(t_stackdata *a, t_stackdata *b, char *line)
 		rrr(a, b);
 	else
 		ERROR;
-}
-
-void		windows_tests(t_stackdata *a, t_stackdata *b)
-{
-	rule(a, b, "rra");
-	rule(a, b, "pb");
-	rule(a, b, "sa");
-	rule(a, b, "rra");
-	rule(a, b, "pa");
 }
 
 void		initialise(t_ps *ps)

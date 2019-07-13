@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/14 09:20:44 by agabrie           #+#    #+#             */
-/*   Updated: 2018/09/03 10:04:09 by agabrie          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 void		check_dups(char **av)
@@ -63,18 +51,6 @@ int			check_inverted(t_stackdata *a)
 	return (1);
 }
 
-void		printbothstacks(t_stackdata *a, t_stackdata *b)
-{
-	ft_putstr_col_fd(CYAN, CAT("Stack ", CAT(VAR(a), " : ")), 2);
-	ft_putnbr_col_fd(YELLOW, lst_size(a), 2);
-	printstack(a->lst);
-	ft_putendl_fd("", 2);
-	ft_putstr_col_fd(YELLOW, CAT("Stack ", CAT(VAR(b), " : ")), 2);
-	ft_putnbr_col_fd(YELLOW, lst_size(b), 2);
-	printstack(b->lst);
-	ft_putendl_fd("", 2);
-}
-
 int			check_sorted(t_stackdata *a)
 {
 	t_stack *head;
@@ -94,4 +70,26 @@ int			check_sorted(t_stackdata *a)
 		}
 	}
 	return (1);
+}
+
+int			main(int ac, char **av)
+{
+	t_ps		ps;
+
+	if (ac > 1)
+	{
+		init(&ps, av, ac);
+		if (lst_size(&ps.a) < 50)
+		{
+			dtt(&ps);
+			backtoa(&ps);
+		}
+		else
+		{
+			partition(&ps);
+			backtoa(&ps);
+		}
+		freestack(&ps.a);
+	}
+	exit(0);
 }

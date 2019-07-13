@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   extra.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 10:16:42 by agabrie           #+#    #+#             */
-/*   Updated: 2018/09/03 11:15:24 by agabrie          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 #define RULE(str) {rule(&ps->a, &ps->b, str);ft_putendl(str);continue;}
 #define DRULE(str) {rule(&ps->a, &ps->b, str);ft_putendl(str);return(1);}

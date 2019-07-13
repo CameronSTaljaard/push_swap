@@ -25,7 +25,7 @@ CH_SRCS		+= $(SRC_DIR)checker/stack_handler.c $(SRC_DIR)checker/stack_functions.
 CH_SRCS		+= srcs/checker/visualizer.c srcs/checker/read_input.c
 
 PS_SRCS		= $(SRC_DIR)pswap/a_ops.c $(SRC_DIR)pswap/algorithm.c $(SRC_DIR)pswap/arguments.c
-PS_SRCS		+= $(SRC_DIR)pswap/both_ops.c $(SRC_DIR)pswap/extra.c $(SRC_DIR)pswap/extra2.c $(SRC_DIR)pswap/main.c
+PS_SRCS		+= $(SRC_DIR)pswap/both_ops.c $(SRC_DIR)pswap/extra.c $(SRC_DIR)pswap/extra2.c
 PS_SRCS		+= $(SRC_DIR)pswap/push_swap.c $(SRC_DIR)pswap/values.c $(SRC_DIR)pswap/stack_ops.c
 
 CH_OBJS		= $(SRCS:.c=.o)
