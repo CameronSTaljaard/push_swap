@@ -13,8 +13,6 @@
 #ifndef CHECKER_H
 # define CHECKER_H
 # include <stdlib.h>
-# include "push_swap.h"
-# include "common.h"
 
 # define INIT_STACKS_1 {a = init_stack(ac, av); b = NULL;}
 # define INIT_STACKS_2 {a = init_stack(length_of(s_argv), s_argv); b = NULL;}
@@ -33,6 +31,13 @@
 # define V_ENABLED args & 1
 # define C_ENABLED (args & (1 << 1))
 # define FREE {free_stack(a); a = NULL;}
+
+typedef struct		s_stack
+{
+	int				number;
+	struct s_stack	*next;
+	struct s_stack	*previous;
+}					t_stack;
 
 /*
 ** Stacks.
@@ -59,6 +64,7 @@ void				rotate(t_stack **stack, int n);
 /*
 ** Input checking
 */
+void				handle_arguments(int *ac, char ***av, char *args);
 int					checkline(char *line);
 int					is_arg(char **str, char *args);
 int					input_valid(int ac, char **av);
