@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_validator.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/10 19:46:06 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/07/10 19:46:07 by ctaljaar         ###   ########.fr       */
+/*   Created: 2018/08/15 08:14:12 by agabrie           #+#    #+#             */
+/*   Updated: 2018/09/03 10:18:44 by agabrie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include "checker.h"
+#include "push_swap.h"
 
-int			string_input(char *str)
+int			main(int ac, char **av)
 {
-	while (*str)
+	t_ps		ps;
+
+	if (ac > 1)
 	{
-		if (*str == ' ' || *str == '\t')
-			return (TRUE);
-		str++;
+		init(&ps, av, ac);
+		if (lst_size(&ps.a) < 50)
+		{
+			dtt(&ps);
+			backtoa(&ps);
+		}
+		else
+		{
+			partition(&ps);
+			backtoa(&ps);
+		}
+		freestack(&ps.a);
 	}
-	return (FALSE);
+	exit(0);
 }
