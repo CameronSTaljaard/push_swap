@@ -21,6 +21,7 @@
 #  define ERROR {ft_putendl_col_fd(RED, "ERROR", 1); exit(0);}
 # endif
 # define BAD_USE {ft_putendl_col_fd(RED, "Too few arguments.", 1); return (0);}
+# define CHECK_ARGS {(!ac) ? (BAD_USE) : NULL}
 # define KO {ft_putendl_col_fd(RED, "KO", 1); exit(0);}
 # define OK {ft_putendl_col_fd(GREEN, "OK", 1); exit(0);}
 # define OK_FREE {ft_putendl_col_fd(GREEN, "OK", 1); (FREE); exit(0);}

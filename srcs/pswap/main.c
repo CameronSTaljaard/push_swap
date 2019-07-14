@@ -12,6 +12,39 @@
 
 #include "push_swap.h"
 
+void		handle_arguments(int *ac, char ***av)
+{
+	if (!*ac)
+		ERROR;
+	SHIFT_ARGV;
+	//while (is_arg(*av, args))
+	//{
+	//	*av += 1;
+	//	*ac -= 1;
+	//}
+	if(!*ac)
+	{
+		ft_putendl_col_fd(RED, "Too few arguments", 1);
+		exit(0);
+	}
+}
+
+int			main(int ac, char **av)
+{
+	t_ps		ps;
+	SHIFT_ARGV;
+	handle_arguments(&ac, &av);
+	if(!input_valid(ac, av))
+		ERROR
+	if (string_input(*av))
+		init_ps(&ps, av ,ac);
+	partition(&ps);
+	backtoa(&ps);
+	//else
+	//	ft_putendl_col_fd(RED, "Numbers input", 1);
+	//	return (0);
+}
+/*
 int			main(int ac, char **av)
 {
 	t_ps		ps;
@@ -33,3 +66,4 @@ int			main(int ac, char **av)
 	}
 	exit(0);
 }
+*/

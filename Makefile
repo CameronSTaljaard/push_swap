@@ -26,7 +26,8 @@ CH_SRCS		+= srcs/checker/visualizer.c srcs/checker/read_input.c
 
 PS_SRCS		= $(SRC_DIR)pswap/ops.c $(SRC_DIR)pswap/algorithm.c $(SRC_DIR)pswap/arguments.c
 PS_SRCS		+= $(SRC_DIR)pswap/both_ops.c $(SRC_DIR)pswap/extra.c $(SRC_DIR)pswap/extra2.c $(SRC_DIR)pswap/main.c
-PS_SRCS		+= $(SRC_DIR)pswap/push_swap.c $(SRC_DIR)pswap/values.c $(SRC_DIR)pswap/stack_ops.c
+PS_SRCS		+= $(SRC_DIR)pswap/push_swap.c $(SRC_DIR)pswap/values.c $(SRC_DIR)pswap/stack_ops.c $(SRC_DIR)pswap/string_validator.c
+PS_SRCS		+= $(SRC_DIR)pswap/validator.c $(SRC_DIR)pswap/int_validator.c
 
 CH_OBJS		= $(SRCS:.c=.o)
 FLAGS 		= -Wall -Werror -Wextra

@@ -2,6 +2,8 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <libft.h>
+# define SHIFT_ARGV {av++; ac--;}
+# define CHECK_ARGS {if (!ac) ft_putendl_col_fd(RED, "Too few arguments.", 1); exit (0);}
 # define ERROR {ft_putendl_col_fd(RED, "ERROR\n", 1); exit(0);}
 # define VAR(NAME) #NAME
 # define FS() (freestack(a),freestack(b))
@@ -27,9 +29,9 @@ typedef struct	s_ps
 {
 	t_stackdata	a;
 	t_stackdata	b;
-	int			debug;
 }				t_ps;
 
+void			handle_arguments(int *ac, char ***av);
 t_stack			*new_node(int value);
 int				pop(t_stackdata *list);
 void			push(t_stackdata *list, int val);
@@ -50,6 +52,8 @@ void			temp_stack(t_stackdata *temp, int size);
 t_stackdata		normalise(t_stackdata *temp, int size, t_stackdata *a);
 void			freestack(t_stackdata *stack);
 void			init(t_ps *ps, char **av, int ac);
+//
+void			init_ps(t_ps *ps, char **av, int ac);
 int				bottom_val(t_stackdata *stack);
 int				lst_size(t_stackdata *stack);
 int				lowest_val(t_stackdata *stack);
@@ -69,4 +73,11 @@ void			rotate_a_end(t_ps *ps);
 void			pushbacktoa(t_ps *ps);
 void			backtoa(t_ps *ps);
 void			rotate_b(t_ps *ps, int i);
+int				input_valid(int ac, char **av);
+int				string_input(char *str);
+int				int_input_check(int ac, char **av);
+int				only_digits(char *str);
+int				int_check(char *str);
+int				has_doubles(int ac, char **av);
+
 #endif
