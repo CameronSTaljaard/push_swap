@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/03 10:13:23 by agabrie           #+#    #+#             */
+/*   Updated: 2018/09/03 10:20:53 by agabrie          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #define RULE(str) {rule(&ps->a, &ps->b, str);ft_putendl(str);continue;}
 #define DRULE(str) {rule(&ps->a, &ps->b, str);ft_putendl(str);return(1);}
@@ -87,6 +99,33 @@ void		secondhighest(t_ps *ps)
 	{
 		i++;
 		RULE("sa");
+	}
+}
+
+void		frankenstein(t_ps *ps)
+{
+	int i;
+
+	i = 0;
+	while (!(check_sorted(&ps->a) == 1))
+	{
+		i++;
+		if (checkdoublerule(ps))
+			continue;
+		if ((AA) && (A->value > ABV))
+			RULE("ra");
+		if ((AA) && (A->value > AN->value) && (A->value < ABV))
+			RULE("sa");
+		if ((BB) && (B->value < BBV))
+			RULE("rb");
+		if ((BB) && (BN->value > B->value))
+			RULE("sb");
+		if ((AA) && (ABV < A->value) && (ABV < AN->value))
+			RULE("rra");
+		if ((AA) && (AN->value > A->value) && (AN->value > ABV))
+			RULE("sa");
+		rotate_b(ps, i);
+		RULE("pb");
 	}
 }
 

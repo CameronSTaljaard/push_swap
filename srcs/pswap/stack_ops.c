@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_ops.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/15 08:07:25 by agabrie           #+#    #+#             */
+/*   Updated: 2018/09/03 10:12:28 by agabrie          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_stack		*new_node(int value)
@@ -53,10 +65,7 @@ void		printstack(t_stack *stack)
 	{
 		i++;
 		if (i % 10 == 0)
-		{
 			ft_putnbr_fd(peek(head), 2);
-			ft_putendl("");
-		}
 		else
 		{
 			ft_putnbr_fd(peek(head), 2);
