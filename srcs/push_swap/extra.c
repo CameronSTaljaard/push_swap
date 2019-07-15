@@ -27,7 +27,7 @@ void	rotate_a_end(t_ps *ps)
 	}
 }
 
-void	pushbacktoa(t_ps *ps)
+void	pushreturn_to_a(t_ps *ps)
 {
 	while (B)
 	{
@@ -55,7 +55,7 @@ void	pushbacktoa(t_ps *ps)
 	rotate_a_end(ps);
 }
 
-void	backtoa(t_ps *ps)
+void	return_to_a(t_ps *ps)
 {
 	while (B)
 	{

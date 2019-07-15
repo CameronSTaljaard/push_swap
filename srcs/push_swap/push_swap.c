@@ -96,12 +96,12 @@ int			main(int ac, char **av)
 		if (lst_size(&ps.a) < 50)
 		{
 			dtt(&ps);
-			backtoa(&ps);
+			return_to_a(&ps);
 		}
 		else
 		{
 			partition(&ps);
-			backtoa(&ps);
+			return_to_a(&ps);
 		}
 		freestack(&ps.a);
 	}

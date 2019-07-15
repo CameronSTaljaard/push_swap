@@ -55,12 +55,6 @@ typedef struct	s_stackdata
 	int			size;
 }				t_stackdata;
 
-typedef struct	s_ps
-{
-	t_stackdata	a;
-	t_stackdata	b;
-}				t_ps;
-
 t_stack			*new_node(int value);
 int				pop(t_stackdata *list);
 void			push(t_stackdata *list, int val);
@@ -100,8 +94,8 @@ void			secondhighest(t_ps *ps);
 void			partition(t_ps *ps);
 int				checkdoublerule(t_ps *ps);
 void			rotate_a_end(t_ps *ps);
-void			pushbacktoa(t_ps *ps);
-void			backtoa(t_ps *ps);
+void			pushreturn_to_a(t_ps *ps);
+void			return_to_a(t_ps *ps);
 void			rotate_b(t_ps *ps, int i);
 int				int_input_check(int ac, char **av);
 int				string_input(char *str);
