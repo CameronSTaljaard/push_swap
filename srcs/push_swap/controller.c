@@ -44,15 +44,6 @@ void		rule(t_stackdata *a, t_stackdata *b, char *line)
 	}
 }
 
-void		windows_tests(t_stackdata *a, t_stackdata *b)
-{
-	rule(a, b, "rra");
-	rule(a, b, "pb");
-	rule(a, b, "sa");
-	rule(a, b, "rra");
-	rule(a, b, "pa");
-}
-
 void		initialise(t_ps *ps)
 {
 	ps->a.size = 0;

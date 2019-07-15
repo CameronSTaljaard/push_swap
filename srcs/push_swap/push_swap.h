@@ -18,8 +18,29 @@
 # define ERROR {ft_putendl_col_fd(RED, "ERROR", 1); exit(0);}
 # define VAR(NAME) #NAME
 # define MESSAGE(string, colour) (col_endl_fd(colour, string, 1),FS(),exit(1))
-# define CAT(A, B) A B
 # define ARRLEN(args, ac) ac = 0;while(args[ac])ac++;ac++;
+#define RULE(str) {rule(&ps->a, &ps->b, str);ft_putendl(str);continue;}
+#define DRULE(str) {rule(&ps->a, &ps->b, str);ft_putendl(str);return(1);}
+
+/*
+** Error checking. Norminette :)
+*/
+#define BS (&ps->b)
+#define AS (&ps->a)
+#define A (ps->a.lst)
+#define B (ps->b.lst)
+#define AN (ps->a.lst->next)
+#define BN (ps->b.lst->next)
+#define AA (A && AN)
+#define BB (B && BN)
+#define AB (AA && BB)
+#define ABV (bottom_val(AS))
+#define BBV (bottom_val(BS))
+#define HV(stack) (highest_val(stack))
+#define LV(stack) (lowest_val(stack))
+#define RANGE() (sect * ((lst_size(AS) + lst_size(BS)) / parts))
+#define BHP(value) (find_pos(BS, value))
+#define NH(stack) (highest_under(stack, HV(stack)))
 
 typedef struct	s_stack
 {
@@ -76,11 +97,14 @@ void			temp_stack(t_stackdata *temp, int size);
 void			dtt(t_ps *ps);
 void			rotateb(t_ps *ps, int pos, int halfstack);
 void			secondhighest(t_ps *ps);
-void			frankenstein(t_ps *ps);
 void			partition(t_ps *ps);
 int				checkdoublerule(t_ps *ps);
 void			rotate_a_end(t_ps *ps);
 void			pushbacktoa(t_ps *ps);
 void			backtoa(t_ps *ps);
 void			rotate_b(t_ps *ps, int i);
+int				int_input_check(int ac, char **av);
+int				string_input(char *str);
+int				input_valid(int ac, char **av);
+
 #endif

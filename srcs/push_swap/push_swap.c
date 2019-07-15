@@ -83,3 +83,27 @@ int			check_sorted(t_stackdata *a)
 	}
 	return (1);
 }
+
+int			main(int ac, char **av)
+{
+	t_ps		ps;
+
+	if (ac > 1)
+	{
+		if (!input_valid(ac - 1, av + 1))
+			ERROR;
+		init(&ps, av, ac);
+		if (lst_size(&ps.a) < 50)
+		{
+			dtt(&ps);
+			backtoa(&ps);
+		}
+		else
+		{
+			partition(&ps);
+			backtoa(&ps);
+		}
+		freestack(&ps.a);
+	}
+	exit(0);
+}

@@ -24,9 +24,10 @@ CH_SRCS		+= $(SRC_DIR)checker/validator.c $(SRC_DIR)checker/check_op.c $(SRC_DIR
 CH_SRCS		+= $(SRC_DIR)checker/stack_handler.c $(SRC_DIR)checker/stack_functions.c $(SRC_DIR)checker/int_validator.c
 CH_SRCS		+= srcs/checker/visualizer.c srcs/checker/read_input.c
 
-PS_SRCS		= $(SRC_DIR)pswap/ops.c $(SRC_DIR)pswap/algorithm.c $(SRC_DIR)pswap/arguments.c
-PS_SRCS		+= $(SRC_DIR)pswap/both_ops.c $(SRC_DIR)pswap/extra.c $(SRC_DIR)pswap/extra2.c $(SRC_DIR)pswap/main.c
-PS_SRCS		+= $(SRC_DIR)pswap/push_swap.c $(SRC_DIR)pswap/values.c $(SRC_DIR)pswap/stack_ops.c
+PS_SRCS		= $(SRC_DIR)push_swap/single_operations.c $(SRC_DIR)push_swap/algorithm.c $(SRC_DIR)push_swap/controller.c
+PS_SRCS		+= $(SRC_DIR)push_swap/double_operations.c $(SRC_DIR)push_swap/extra.c $(SRC_DIR)push_swap/extra2.c
+PS_SRCS		+= $(SRC_DIR)push_swap/push_swap.c $(SRC_DIR)push_swap/values.c $(SRC_DIR)push_swap/stack_ops.c $(SRC_DIR)push_swap/validator.c
+PS_SRCS		+= $(SRC_DIR)push_swap/string_validator.c
 
 CH_OBJS		= $(SRCS:.c=.o)
 FLAGS 		= -Wall -Werror -Wextra

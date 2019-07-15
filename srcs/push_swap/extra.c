@@ -12,44 +12,6 @@
 
 #include "push_swap.h"
 
-#define RULE(str) {rule(&ps->a, &ps->b, str);ft_putendl(str);continue;}
-#define DRULE(str) {rule(&ps->a, &ps->b, str);ft_putendl(str);return(1);}
-#define BS (&ps->b)
-#define AS (&ps->a)
-#define A (ps->a.lst)
-#define B (ps->b.lst)
-#define AN (ps->a.lst->next)
-#define BN (ps->b.lst->next)
-#define AA (A && AN)
-#define BB (B && BN)
-#define AB (AA && BB)
-#define ABV (bottom_val(AS))
-#define BBV (bottom_val(BS))
-#define HV(stack) (highest_val(stack))
-#define LV(stack) (lowest_val(stack))
-#define RANGE() (sect * ((lst_size(AS) + lst_size(BS)) / parts))
-#define BHP(value) (find_pos(BS, value))
-#define NH(stack) (highest_under(stack, HV(stack)))
-
-int		checkdoublerule(t_ps *ps)
-{
-	if ((AB)\
-	&& (BN->value > B->value) && (A->value > AN->value) && (A->value < ABV))
-	{
-		DRULE("ss");
-	}
-	if ((AB) && (BN->value < B->value) && (A->value < AN->value)\
-	&& (AN->value > ABV) && (BBV > BN->value))
-	{
-		DRULE("ss");
-	}
-	if ((AB) && (B->value < BBV) && (A->value > ABV))
-	{
-		DRULE("rr");
-	}
-	return (0);
-}
-
 void	rotate_a_end(t_ps *ps)
 {
 	while (ABV != HV(&ps->a))
