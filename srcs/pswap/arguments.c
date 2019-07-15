@@ -15,25 +15,25 @@
 void		rule(t_stackdata *a, t_stackdata *b, char *line)
 {
 	if (ft_strequ(line, "sa"))
-		sa(a);
+		swap(a);
 	else if (ft_strequ(line, "sb"))
-		sb(b);
+		swap(b);
 	else if (ft_strequ(line, "ss"))
 		ss(a, b);
 	else if (ft_strequ(line, "pa"))
-		pa(a, b);
+		push_to(a, b);
 	else if (ft_strequ(line, "pb"))
-		pb(a, b);
+		push_to(b, a);
 	else if (ft_strequ(line, "ra"))
-		ra(a);
+		rotate(a);
 	else if (ft_strequ(line, "rb"))
-		rb(b);
+		rotate(b);
 	else if (ft_strequ(line, "rr"))
 		rr(a, b);
 	else if (ft_strequ(line, "rra"))
-		rra(a);
+		rrx(a);
 	else if (ft_strequ(line, "rrb"))
-		rrb(b);
+		rrx(b);
 	else if (ft_strequ(line, "rrr"))
 		rrr(a, b);
 	else

@@ -1,53 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_ops.c                                            :+:      :+:    :+:   */
+/*   a_ops.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/15 08:07:09 by agabrie           #+#    #+#             */
-/*   Updated: 2018/09/03 10:05:54 by agabrie          ###   ########.fr       */
+/*   Created: 2018/08/15 08:06:58 by agabrie           #+#    #+#             */
+/*   Updated: 2018/09/03 10:05:22 by agabrie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		sb(t_stackdata *b)
+void		swap(t_stackdata *stack)
 {
 	t_stack *temp;
 
-	if (b->lst && b->lst->next)
+	if (stack->lst && stack->lst->next)
 	{
-		temp = b->lst;
-		b->lst = b->lst->next;
-		temp->next = b->lst->next;
-		b->lst->next = temp;
+		temp = stack->lst;
+		stack->lst = stack->lst->next;
+		temp->next = stack->lst->next;
+		stack->lst->next = temp;
 	}
 	return ;
 }
 
-void		pb(t_stackdata *a, t_stackdata *b)
+void		push_to(t_stackdata *to, t_stackdata *from)
 {
 	t_stack *temp;
 
-	temp = a->lst;
-	if (a->lst)
-		a->lst = a->lst->next;
+	temp = from->lst;
+	if (from->lst)
+		from->lst = from->lst->next;
 	else
 		return ;
-	temp->next = b->lst;
-	b->lst = temp;
+	temp->next = to->lst;
+	to->lst = temp;
 }
 
-void		rb(t_stackdata *b)
+void		rotate(t_stackdata *stack)
 {
 	t_stack *temp;
 	t_stack *head;
 
-	head = b->lst;
-	temp = b->lst;
-	if (b->lst && b->lst->next)
-		b->lst = b->lst->next;
+	head = stack->lst;
+	temp = stack->lst;
+	if (stack->lst && stack->lst->next)
+		stack->lst = stack->lst->next;
 	else
 		return ;
 	if (temp->value > MIN_INT)
@@ -59,15 +59,15 @@ void		rb(t_stackdata *b)
 	}
 }
 
-void		rrb(t_stackdata *b)
+void		rrx(t_stackdata *stack)
 {
 	t_stack *head;
 	t_stack *temp;
 
-	if (b->lst && b->lst->next)
+	if (stack->lst && stack->lst->next)
 	{
-		head = b->lst;
-		temp = b->lst;
+		head = stack->lst;
+		temp = stack->lst;
 	}
 	else
 		return ;
@@ -75,8 +75,8 @@ void		rrb(t_stackdata *b)
 	{
 		while (head->next->next)
 			head = head->next;
-		b->lst = head->next;
-		b->lst->next = temp;
+		stack->lst = head->next;
+		stack->lst->next = temp;
 		head->next = NULL;
 	}
 }
