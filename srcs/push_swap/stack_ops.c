@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/15 08:07:25 by agabrie           #+#    #+#             */
-/*   Updated: 2018/09/03 10:12:28 by agabrie          ###   ########.fr       */
+/*   Created: 2019/07/18 08:18:29 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/18 08:18:30 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,6 @@ t_stack		*new_node(int value)
 	return (node);
 }
 
-int			pop(t_stackdata *list)
-{
-	int		val;
-	t_stack	*temp;
-
-	if (!list->lst)
-		return (MIN_INT);
-	temp = list->lst;
-	list->lst = list->lst->next;
-	val = temp->value;
-	free(temp);
-	list->size = lst_size(list);
-	return (val);
-}
-
 void		push(t_stackdata *stack, int val)
 {
 	t_stack *top;
@@ -44,7 +29,7 @@ void		push(t_stackdata *stack, int val)
 	top = new_node(val);
 	top->next = stack->lst;
 	stack->lst = top;
-	stack->size = lst_size(stack);
+	stack->size = stack_size(stack);
 }
 
 int			peek(t_stack *top)

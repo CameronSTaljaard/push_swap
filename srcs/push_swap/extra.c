@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extra.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 10:16:42 by agabrie           #+#    #+#             */
-/*   Updated: 2018/09/03 11:15:24 by agabrie          ###   ########.fr       */
+/*   Created: 2019/07/18 08:18:18 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/18 08:18:19 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	rotate_a_end(t_ps *ps)
 {
 	while (ABV != HV(&ps->a))
 	{
-		if (find_pos(&ps->a, highest_val(&ps->a)) < (lst_size(&ps->a) / 2))
+		if (find_pos(&ps->a, highest_val(&ps->a)) < (stack_size(&ps->a) / 2))
 		{
-			RULE("ra");
+			EXEC("ra");
 		}
 		else
 		{
-			RULE("rra");
+			EXEC("rra");
 		}
 	}
 }
@@ -32,25 +32,25 @@ void	pushreturn_to_a(t_ps *ps)
 	while (B)
 	{
 		if (HV(&ps->a) < HV(&ps->b))
-			RULE("rb");
+			EXEC("rb");
 		if (A->value < HV(&ps->b))
-			RULE("ra");
+			EXEC("ra");
 		if (check_largest(&ps->b) && B->value > LV(AS))
-			RULE("pa");
+			EXEC("pa");
 		if (!B || ((ABV > HV(&ps->b)) && (ABV < A->value)))
-			RULE("rra");
+			EXEC("rra");
 		if (HV(&ps->b) != B->value)
 		{
-			if (find_pos(&ps->b, HV(&ps->b)) < (lst_size(&ps->a) / 2))
+			if (find_pos(&ps->b, HV(&ps->b)) < (stack_size(&ps->a) / 2))
 			{
 				while (HV(&ps->b) != B->value)
-					RULE("rb");
+					EXEC("rb");
 			}
 			else
 				while (HV(&ps->b) != B->value)
-					RULE("rrb");
+					EXEC("rrb");
 		}
-		RULE("pa");
+		EXEC("pa");
 	}
 	rotate_a_end(ps);
 }
@@ -63,20 +63,20 @@ void	return_to_a(t_ps *ps)
 		{
 			while (B->value != HV(BS))
 			{
-				rotateb(ps, BHP(HV(BS)), (lst_size(BS) / 2));
+				rotateb(ps, BHP(HV(BS)), (stack_size(BS) / 2));
 			}
-			RULE("pa");
+			EXEC("pa");
 		}
 		else
 		{
-			if (lst_size(BS) > 2)
+			if (stack_size(BS) > 2)
 				secondhighest(ps);
 			else if (B->value != HV(BS))
 			{
-				RULE("sb");
+				EXEC("sb");
 			}
 			else
-				RULE("pa");
+				EXEC("pa");
 		}
 	}
 }
@@ -88,12 +88,12 @@ void	rotate_b(t_ps *ps, int i)
 	if ((A && BB) && A->value < HV(&ps->b) && A->value > LV(&ps->b))
 	{
 		a = highest_under(&ps->b, A->value);
-		if (find_pos(&ps->b, a) < lst_size(&ps->b) / 2)
+		if (find_pos(&ps->b, a) < stack_size(&ps->b) / 2)
 		{
 			while (highest_under(&ps->b, A->value) != B->value)
 			{
 				++i;
-				RULE("rb");
+				EXEC("rb");
 			}
 		}
 		else
@@ -101,7 +101,7 @@ void	rotate_b(t_ps *ps, int i)
 			while (highest_under(&ps->b, A->value) != B->value)
 			{
 				++i;
-				RULE("rrb");
+				EXEC("rrb");
 			}
 		}
 	}

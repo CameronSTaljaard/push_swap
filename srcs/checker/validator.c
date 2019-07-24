@@ -29,6 +29,13 @@ int			is_arg(char **str, char *args)
 		*args += 2;
 		return (1);
 	}
+	if (ft_strequ(*str, "-o"))
+	{
+		if (*args & (1 << 2))
+			ERROR;
+		*args += 4;
+		return (1);
+	}
 	return (0);
 }
 
@@ -83,15 +90,10 @@ int			only_digits(char *str)
 
 int			input_valid(int ac, char **av)
 {
-	int		i;
-	char	**str;
-
-	i = 0;
 	if (string_input(av[0]))
 	{
 		if (ac > 1)
 			ERROR;
-		str = ft_strsplit(av[0], ' ');
 	}
 	else if (!int_input_check(ac, av))
 		ERROR;

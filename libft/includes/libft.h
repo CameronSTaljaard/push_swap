@@ -141,5 +141,6 @@ int					ft_int_overflows(const char *str);
 void				ft_copy_array(char **arr1, char **arr2);
 void				ft_freearray(char **arr);
 int					ft_isnum(char *str);
+int					string_input(char *str);
 
 #endif

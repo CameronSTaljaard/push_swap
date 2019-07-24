@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/14 09:20:44 by agabrie           #+#    #+#             */
-/*   Updated: 2018/09/03 10:04:09 by agabrie          ###   ########.fr       */
+/*   Created: 2019/07/18 08:18:42 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/18 08:18:43 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,6 @@ int			check_largest(t_stackdata *stack)
 	return (1);
 }
 
-int			check_inverted(t_stackdata *a)
-{
-	t_stack *head;
-
-	head = a->lst;
-	while (head && head->next)
-	{
-		if (head->value > head->next->value)
-			head = head->next;
-		else
-			return (0);
-	}
-	return (1);
-}
-
 int			check_sorted(t_stackdata *a)
 {
 	t_stack *head;
@@ -74,12 +59,7 @@ int			check_sorted(t_stackdata *a)
 		&& (head->next->value - head->value == 1))
 			head = head->next;
 		else
-		{
-			if (check_inverted(a))
-				return (2);
-			else
-				return (0);
-		}
+			return (0);
 	}
 	return (1);
 }
@@ -93,7 +73,7 @@ int			main(int ac, char **av)
 		if (!input_valid(ac - 1, av + 1))
 			ERROR;
 		init(&ps, av, ac);
-		if (lst_size(&ps.a) < 50)
+		if (stack_size(&ps.a) < 50)
 		{
 			dtt(&ps);
 			return_to_a(&ps);

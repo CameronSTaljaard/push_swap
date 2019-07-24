@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 20:18:31 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/07/05 20:18:32 by ctaljaar         ###   ########.fr       */
+/*   Created: 2019/07/18 08:19:08 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/18 08:19:09 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,10 @@ int			only_digits(char *str)
 
 int			input_valid(int ac, char **av)
 {
-	int		i;
-	char	**str;
-
-	i = 0;
 	if (string_input(av[0]))
 	{
 		if (ac > 1)
 			ERROR;
-		str = ft_strsplit(av[0], ' ');
 	}
 	else if (!int_input_check(ac, av))
 		ERROR;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   values.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/25 14:13:18 by agabrie           #+#    #+#             */
-/*   Updated: 2018/09/03 10:27:56 by agabrie          ###   ########.fr       */
+/*   Created: 2019/07/18 08:19:18 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/18 08:19:19 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int				bottom_val(t_stackdata *stack)
 	return (head->value);
 }
 
-int				lst_size(t_stackdata *stack)
+int				stack_size(t_stackdata *stack)
 {
 	t_stack *head;
 	int		i;

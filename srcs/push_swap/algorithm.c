@@ -3,32 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 10:13:23 by agabrie           #+#    #+#             */
-/*   Updated: 2018/09/03 10:20:53 by agabrie          ###   ########.fr       */
+/*   Created: 2019/07/18 08:18:06 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/18 08:20:06 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #define RULE(str) {rule(&ps->a, &ps->b, str);ft_putendl(str);continue;}
 #define DRULE(str) {rule(&ps->a, &ps->b, str);ft_putendl(str);return(1);}
-#define BS (&ps->b)
-#define AS (&ps->a)
-#define A (ps->a.lst)
-#define B (ps->b.lst)
-#define AN (ps->a.lst->next)
-#define BN (ps->b.lst->next)
-#define AA (A && AN)
-#define BB (B && BN)
-#define AB (AA && BB)
-#define ABV (bottom_val(AS))
-#define BBV (bottom_val(BS))
-#define HV(stack) (highest_val(stack))
-#define LV(stack) (lowest_val(stack))
-#define RANGE() (sect * ((lst_size(AS) + lst_size(BS)) / parts))
-#define BHP(value) (find_pos(BS, value))
-#define NH(stack) (highest_under(stack, HV(stack)))
 
 void		dtt(t_ps *ps)
 {
@@ -37,8 +21,8 @@ void		dtt(t_ps *ps)
 		if ((AB) && (BN->value > B->value)
 		&& (A->value > AN->value) && (A->value < ABV))
 			RULE("ss");
-		if ((AB) && (BN->value < B->value)
-		&& (A->value < AN->value) && (AN->value > ABV) && (BBV > BN->value))
+		if ((AB) && (BN->value < B->value) &&
+		(A->value < AN->value) && (AN->value > ABV) && (BBV > BN->value))
 			RULE("ss");
 		if ((AB) && (B->value < BBV) && (A->value > ABV))
 			RULE("rr");
@@ -81,14 +65,14 @@ void		secondhighest(t_ps *ps)
 	while (i < 2)
 	{
 		while (i == 0 && B->value != NH(BS))
-			rotateb(ps, BHP(NH(BS)), (lst_size(BS) / 2));
+			rotateb(ps, BHP(NH(BS)), (stack_size(BS) / 2));
 		if (i == 0 && B->value == NH(BS))
 		{
 			i++;
 			RULE("pa");
 		}
 		while (i == 1 && B->value != HV(BS))
-			rotateb(ps, BHP(HV(BS)), (lst_size(BS) / 2));
+			rotateb(ps, BHP(HV(BS)), (stack_size(BS) / 2));
 		if (i == 1 && B->value == HV(BS))
 		{
 			i++;
@@ -110,12 +94,13 @@ void		partition(t_ps *ps)
 
 	i = 0;
 	sect = 1;
-	parts = (lst_size(&ps->a) > 250 ? 10 : 5);
+	parts = (stack_size(&ps->a) > 250 ? 10 : 5);
 	while (sect <= parts)
 	{
-		while (i < RANGE())
+		while (i < (sect * ((stack_size(AS) + stack_size(BS)) / parts)))
 		{
-			if (A->value <= RANGE())
+			if (A->value <= (sect * ((stack_size(AS) +
+								stack_size(BS)) / parts)))
 			{
 				i++;
 				RULE("pb");

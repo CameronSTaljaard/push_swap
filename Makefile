@@ -6,8 +6,7 @@ HDR_PATH = includes
 SRC_DIR = ./srcs/
 LIBRARIES = -lft -Llibft
 LIBFT	= ./libft/*
-INCLUDES = -I./libft/includes -I./includes
-INCLUDES_DIR = ./includes
+INCLUDES = -I./libft/includes
 
 # ----- Colors -----
 BLACK:="\033[1;30m"
@@ -20,9 +19,9 @@ EOC:="\033[0;0m"
 # ==================
 
 CH_SRCS		= $(SRC_DIR)checker/checker.c $(SRC_DIR)checker/rot_operations.c $(SRC_DIR)checker/shift_operations.c
-CH_SRCS		+= $(SRC_DIR)checker/validator.c $(SRC_DIR)checker/check_op.c $(SRC_DIR)checker/string_validator.c
-CH_SRCS		+= $(SRC_DIR)checker/stack_handler.c $(SRC_DIR)checker/stack_functions.c $(SRC_DIR)checker/int_validator.c
-CH_SRCS		+= srcs/checker/visualizer.c srcs/checker/read_input.c
+CH_SRCS		+= $(SRC_DIR)checker/validator.c $(SRC_DIR)checker/check_op.c $(SRC_DIR)checker/stack_handler.c
+CH_SRCS		+= $(SRC_DIR)checker/stack_functions.c $(SRC_DIR)checker/int_validator.c
+CH_SRCS		+= $(SRC_DIR)checker/visualizer.c $(SRC_DIR)checker/read_input.c
 
 PS_SRCS		= $(SRC_DIR)push_swap/single_operations.c $(SRC_DIR)push_swap/algorithm.c $(SRC_DIR)push_swap/controller.c
 PS_SRCS		+= $(SRC_DIR)push_swap/double_operations.c $(SRC_DIR)push_swap/extra.c $(SRC_DIR)push_swap/extra2.c
@@ -34,13 +33,13 @@ FLAGS 		= -Wall -Werror -Wextra
 
 all:		$(NAME_CH) $(NAME_PS)
 
-$(NAME_CH): $(CH_SRCS) $(LIBFT) $(HEADERS_DIRECTORY) $(INCLUDES_DIR)
+$(NAME_CH): $(CH_SRCS) $(LIBFT)
 		@cd ./libft && make
 		@echo $(GREEN)Built libft.$(EOC);
 		@$(CC) $(FLAGS) $(INCLUDES) $(CH_SRCS) $(LIBRARIES) -o $(NAME_CH)
 		@echo $(GREEN)"Compiled checker." $(EOC)
 
-$(NAME_PS): $(PS_SRCS) $(LIBFT) $(HEADERS_DIRECTORY) $(INCLUDES_DIR)
+$(NAME_PS): $(PS_SRCS) $(LIBFT) $(HEADERS_DIRECTORY)
 		@$(CC) $(FLAGS) $(INCLUDES) $(PS_SRCS) $(LIBRARIES) -o $(NAME_PS)
 		@echo $(GREEN)"Compiled push_swap." $(EOC)
 
@@ -49,6 +48,7 @@ clean:
 		@cd ./libft && make clean
 
 fclean: clean
+		@/bin/rm -f $(NAME_PS)
 		@/bin/rm -f $(NAME_CH)
 		@cd ./libft && make fclean
 

@@ -25,14 +25,17 @@
 # define KO {ft_putendl_col_fd(RED, "KO", 1); exit(0);}
 # define OK {ft_putendl_col_fd(GREEN, "OK", 1); exit(0);}
 # define OK_FREE {ft_putendl_col_fd(GREEN, "OK", 1); (FREE); exit(0);}
+# define KO_FREE {ft_putendl_col_fd(RED, "KO", 1); (FREE); exit(0);}
 
 # define CLEAR ft_putstr("\033[H\033[J");
 # define DIVIDER ft_putchar_col_fd(GREEN, 0x2503, 1); ft_putchar(' ');
 # define VISUALIZE {ft_putstr("\033[H\033[J"); visualize(a, b);}
 
+# define MOVES {ft_putstr("Moves taken: "); ft_putnbr(count); ft_putendl("");}
 # define SHIFT_ARGV {av++; ac--;}
 # define V_ENABLED args & 1
 # define C_ENABLED (args & (1 << 1))
+# define O_ENABLED (args & (1 << 2))
 # define FREE {free_stack(a); a = NULL;}
 
 typedef struct		s_stack

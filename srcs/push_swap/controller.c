@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arguments.c                                        :+:      :+:    :+:   */
+/*   controller.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/15 15:45:27 by agabrie           #+#    #+#             */
-/*   Updated: 2018/09/03 10:10:50 by agabrie          ###   ########.fr       */
+/*   Created: 2019/07/18 08:18:36 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/18 08:18:37 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,6 @@ void		rule(t_stackdata *a, t_stackdata *b, char *line)
 		rrx(b);
 	else if (ft_strequ(line, "rrr"))
 		rrr(a, b);
-	else
-	{
-		(a) ? (freestack(a)) : NULL;
-		(b) ? (freestack(b)) : NULL;
-		ERROR;
-	}
 }
 
 void		initialise(t_ps *ps)
@@ -76,7 +70,7 @@ void		init(t_ps *ps, char **av, int ac)
 		push(&ps->a, ft_atoi(args[ac - (i + 1)]));
 		i++;
 	}
-	temp_stack(&temp, lst_size(&ps->a));
+	temp_stack(&temp, stack_size(&ps->a));
 	ft_freearray(args);
-	ps->a = normalise(&temp, lst_size(&ps->a), &ps->a);
+	ps->a = normalize(&temp, stack_size(&ps->a), &ps->a);
 }

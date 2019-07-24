@@ -6,7 +6,7 @@
 /*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 19:46:48 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/07/10 19:46:49 by ctaljaar         ###   ########.fr       */
+/*   Updated: 2019/07/18 08:21:50 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@
 
 void		read_input(t_stack **a, t_stack **b, char args)
 {
-	char *line;
+	char 	*line;
+	int		count;
 
+	count = 0;
 	while (get_next_line(0, &line))
 	{
 		if (checkline(line))
 		{
 			do_op(line, a, b, args);
+			count++;
 			free(line);
 		}
 		else if (!checkline(line))
@@ -35,6 +38,7 @@ void		read_input(t_stack **a, t_stack **b, char args)
 		if (*a && sorted(*a) && !*b)
 		{
 			free_stack(*a);
+			(O_ENABLED) ? (MOVES) : (NULL);
 			OK;
 		}
 	}
@@ -53,7 +57,7 @@ void		handle_arguments(int *ac, char ***av, char *args)
 		*av += 1;
 		*ac -= 1;
 	}
-	if(!ac)
+	if (!ac)
 	{
 		ft_putendl_col_fd(RED, "Too few arguments", 1);
 		exit(0);
