@@ -1,4 +1,4 @@
-# WeThinkCode_ - Libft
+# WeThinkCode_ - Push_Swap
 ### Score 121/100
 ##### Mandatory
 96/100
